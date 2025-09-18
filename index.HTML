@@ -275,6 +275,35 @@
             transition: background-color 0.3s ease;
         }
         #rsvp-form button:hover { background-color: var(--color-acento-oscuro); }
+
+        /* --- AJUSTES ESPECÍFICOS --- */
+        #itinerario-bg .contenido-centrado {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+
+        /* --- ESTILOS RESPONSIVE PARA MÓVILES --- */
+        @media (max-width: 768px) {
+            .seccion-scroll {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+            .contenido-centrado {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            #itinerario-bg .contenido-centrado {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .nombres-boda { font-size: 3.5rem; }
+            .nombres-anfitriones { font-size: 2rem; }
+            h2 { font-size: 2.2rem; }
+            #itinerario-bg h2 {
+                font-size: 2.8rem !important; /* Usamos !important para anular el estilo en línea */
+            }
+            .info-tiempo h3 { font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -346,15 +375,15 @@
                         <div class="info-tiempo">
                             <h3>Ceremonia</h3>
                             <p>5:00 PM</p>
-                            <a href="https://maps.app.goo.gl/d25N2fJj8q2a7bC8A" target="_blank" class="boton-mapa">Ver Ubicación</a>
+                            <a href="https://maps.app.goo.gl/WcWkPkLVw2y33n3T6" target="_blank" class="boton-mapa">Ver Ubicación</a>
                         </div>
                     </div>
                     <div class="evento-tiempo">
                         <div class="icono-tiempo"><i class="fas fa-glass-cheers"></i></div>
                         <div class="info-tiempo">
-                            <h3>Rompehielos</h3>
-                            <p>6:00 PM</p>
-                            <a href="https://maps.app.goo.gl/YfS3z4f4W3eYpTjG9" target="_blank" class="boton-mapa">Ver Ubicación</a>
+                            <h3>Recepcion</h3>
+                            <p>7:00 PM</p>
+                            <a href="https://maps.app.goo.gl/UieU1vG2Tdpm3nBP7" target="_blank" class="boton-mapa">Ver Ubicación</a>
                         </div>
                     </div>
                     <div class="evento-tiempo">
