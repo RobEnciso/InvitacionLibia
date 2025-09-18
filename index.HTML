@@ -281,23 +281,11 @@
             padding-left: 60px;
             padding-right: 60px;
         }
-        
-        /* --- CAMBIO AQUÍ: Se crearon clases para los títulos especiales --- */
-        .titulo-save-the-date {
-            font-family: var(--fuente-elegante);
-            font-size: 2.5rem;
-            font-style: italic;
-        }
-        .titulo-itinerario {
-            font-family: var(--fuente-elegante);
-            font-size: 4rem;
-            font-style: italic;
-        }
-
 
         /* --- ESTILOS RESPONSIVE PARA MÓVILES --- */
         @media (max-width: 768px) {
             .seccion-scroll {
+                background-attachment: scroll; /* Mejora el rendimiento en móviles */
                 padding-top: 100px;
                 padding-bottom: 100px;
             }
@@ -309,19 +297,15 @@
                 padding-left: 20px;
                 padding-right: 20px;
             }
-            .nombres-boda { font-size: 3.5rem; }
-            .nombres-anfitriones { font-size: 2rem; }
-            h2 { font-size: 2.2rem; }
-
-            /* --- CAMBIO AQUÍ: Ahora estos títulos SÍ obedecerán a la media query --- */
-            .titulo-save-the-date {
-                font-size: 2rem; /* Reducido para móvil */
+            .nombres-boda { font-size: 3.5rem !important; }
+            .nombres-anfitriones { font-size: 2rem !important; }
+            #foto-principal-bg h2, #padres-bg h2, #padrinos-bg h2, #galeria-bg h2, #vestimenta-bg h2, #confirmacion-bg h2 {
+                font-size: 2.2rem !important;
             }
-            .titulo-itinerario {
-                font-size: 2.8rem; /* Reducido para móvil */
+            #itinerario-bg h2 {
+                font-size: 2.8rem !important; /* Se mantiene !important para anular el estilo en línea */
             }
-
-            .info-tiempo h3 { font-size: 1.5rem; }
+            .info-tiempo h3 { font-size: 1.5rem !important; }
         }
     </style>
 </head>
@@ -338,7 +322,7 @@
 
         <section class="seccion-scroll" id="foto-principal-bg">
             <div class="contenido-centrado">
-                <h2 class="titulo-save-the-date">Save the Date</h2>
+                <h2 style="font-family: var(--fuente-elegante); font-size: 2.5rem; font-style: italic;">Save the Date</h2>
                 <p style="font-size: 1.5rem;">30 de Enero, 2026</p>
                 
                 <div id="contador-contenedor">
@@ -380,14 +364,14 @@
                 <p><strong>Velación:</strong><br>Lorena Beatriz Irizar Zamudio & Aaron Schaffnitt Fierros</p>
                 <p><strong>Anillos:</strong><br>Hortencia del Campo Irizar & Victor Hugo Ochoa Benitez</p>
                 <p><strong>Arras:</strong><br>Jose Alfredo Del Campo & Fabiola</p>
-                <p><strong>Lazo:</strong><br>diana Alejandra Diaz del Campo & Ulises Alejandro Sandoval Esparza</p>
+                <p><strong>Lazo:</strong><br>Diana Alejandra Diaz del Campo & Ulises Alejandro Sandoval Esparza</p>
                 <p><strong>Biblia y Rosario:</strong><br>Gerardo Ramirez Martinez & Alexandra Carballo Coronado</p>
             </div>
         </section>
 
         <section class="seccion-scroll" id="itinerario-bg">
             <div class="contenido-centrado">
-                <h2 class="titulo-itinerario">Itinerario</h2>
+                <h2 style="font-family: var(--fuente-elegante); font-size: 4rem; font-style: italic;">Itinerario</h2>
                 <div class="linea-tiempo">
                     <div class="evento-tiempo">
                         <div class="icono-tiempo"><i class="fas fa-church"></i></div>
@@ -444,7 +428,7 @@
         <section class="seccion-scroll" id="vestimenta-bg">
             <div class="contenido-centrado">
                 <h2>Código de Vestimenta</h2>
-                <p class="vestimenta-texto">Formal</p>
+                <p class="vestimenta-texto">Formal</p><br>(No color Blanco ni Rojo)
             </div>
         </section>
 
@@ -470,7 +454,7 @@
         const config = {
             // Formato: AÑO, MES (0=Ene, 1=Feb...), DÍA, HORA (0-23), MINUTO
             fechaBoda: new Date(2026, 0, 30, 17, 0, 0), // 30 de Enero 2026 a las 5:00 PM
-            tituloCalendario: "Boda Libia & Ernesto",
+            tituloCalendario: "Boda Libia & Jesús",
             ubicacionCeremonia: "Parroquia de Nuestra Señora de Guadalupe, Puerto Vallarta",
             // ▼▼▼ ¡IMPORTANTE! PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE SHEETS ▼▼▼
             urlGoogleSheet: "URL_DE_TU_APP_WEB_AQUÍ"
