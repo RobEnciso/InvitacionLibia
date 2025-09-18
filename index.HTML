@@ -281,6 +281,19 @@
             padding-left: 60px;
             padding-right: 60px;
         }
+        
+        /* --- CAMBIO AQUÍ: Se crearon clases para los títulos especiales --- */
+        .titulo-save-the-date {
+            font-family: var(--fuente-elegante);
+            font-size: 2.5rem;
+            font-style: italic;
+        }
+        .titulo-itinerario {
+            font-family: var(--fuente-elegante);
+            font-size: 4rem;
+            font-style: italic;
+        }
+
 
         /* --- ESTILOS RESPONSIVE PARA MÓVILES --- */
         @media (max-width: 768px) {
@@ -299,9 +312,15 @@
             .nombres-boda { font-size: 3.5rem; }
             .nombres-anfitriones { font-size: 2rem; }
             h2 { font-size: 2.2rem; }
-            #itinerario-bg h2 {
-                font-size: 2.8rem !important; /* Usamos !important para anular el estilo en línea */
+
+            /* --- CAMBIO AQUÍ: Ahora estos títulos SÍ obedecerán a la media query --- */
+            .titulo-save-the-date {
+                font-size: 2rem; /* Reducido para móvil */
             }
+            .titulo-itinerario {
+                font-size: 2.8rem; /* Reducido para móvil */
+            }
+
             .info-tiempo h3 { font-size: 1.5rem; }
         }
     </style>
@@ -319,7 +338,7 @@
 
         <section class="seccion-scroll" id="foto-principal-bg">
             <div class="contenido-centrado">
-                <h2 style="font-family: var(--fuente-elegante); font-size: 2.5rem; font-style: italic;">Save the Date</h2>
+                <h2 class="titulo-save-the-date">Save the Date</h2>
                 <p style="font-size: 1.5rem;">30 de Enero, 2026</p>
                 
                 <div id="contador-contenedor">
@@ -368,14 +387,14 @@
 
         <section class="seccion-scroll" id="itinerario-bg">
             <div class="contenido-centrado">
-                <h2 style="font-family: var(--fuente-elegante); font-size: 4rem; font-style: italic;">Itinerario</h2>
+                <h2 class="titulo-itinerario">Itinerario</h2>
                 <div class="linea-tiempo">
                     <div class="evento-tiempo">
                         <div class="icono-tiempo"><i class="fas fa-church"></i></div>
                         <div class="info-tiempo">
                             <h3>Ceremonia</h3>
                             <p>5:00 PM</p>
-                            <a href="https://maps.app.goo.gl/WcWkPkLVw2y33n3T6" target="_blank" class="boton-mapa">Ver Ubicación</a>
+                            <a href="DIRECT_GOOGLE_MAPS_URL_CEREMONY" target="_blank" class="boton-mapa">Ver Ubicación</a>
                         </div>
                     </div>
                     <div class="evento-tiempo">
@@ -383,7 +402,7 @@
                         <div class="info-tiempo">
                             <h3>Recepcion</h3>
                             <p>7:00 PM</p>
-                            <a href="https://maps.app.goo.gl/UieU1vG2Tdpm3nBP7" target="_blank" class="boton-mapa">Ver Ubicación</a>
+                            <a href="DIRECT_GOOGLE_MAPS_URL_RECEPTION" target="_blank" class="boton-mapa">Ver Ubicación</a>
                         </div>
                     </div>
                     <div class="evento-tiempo">
@@ -451,7 +470,7 @@
         const config = {
             // Formato: AÑO, MES (0=Ene, 1=Feb...), DÍA, HORA (0-23), MINUTO
             fechaBoda: new Date(2026, 0, 30, 17, 0, 0), // 30 de Enero 2026 a las 5:00 PM
-            tituloCalendario: "Boda Libia & Jesús",
+            tituloCalendario: "Boda Libia & Ernesto",
             ubicacionCeremonia: "Parroquia de Nuestra Señora de Guadalupe, Puerto Vallarta",
             // ▼▼▼ ¡IMPORTANTE! PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE SHEETS ▼▼▼
             urlGoogleSheet: "URL_DE_TU_APP_WEB_AQUÍ"
