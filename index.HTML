@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,226 +68,133 @@
             pointer-events: none;
         }
 
-        .portada-contenido h1 {
-            font-size: 4rem;
-            margin-bottom: 0;
-        }
-
-        .portada-contenido p {
-            font-size: 1.5rem;
-        }
+        .portada-contenido h1 { font-size: 4rem; margin-bottom: 0; }
+        .portada-contenido p { font-size: 1.5rem; }
         
-        /* CORRECCIÓN: Estilos del botón de la portada */
         .boton-invitacion {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--color-acento);
-            color: var(--color-texto-secundario);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease;
-            cursor: pointer;
+            display: inline-block; padding: 15px 30px; background-color: var(--color-acento);
+            color: var(--color-texto-secundario); text-decoration: none; border-radius: 5px;
+            font-size: 1.2rem; transition: background-color 0.3s ease; cursor: pointer;
         }
+        .boton-invitacion:hover { background-color: var(--color-acento-oscuro); }
 
-        .boton-invitacion:hover {
-            background-color: var(--color-acento-oscuro);
-        }
-
-        /* --- Estilos de la Invitación (Scroll) --- */
-        .seccion-scroll {
-            min-height: 100vh;
+        /* --- NUEVA ESTRUCTURA DE SECCIONES --- */
+        .seccion-imagen-parallax {
+            height: 60vh;
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        }
+        .seccion-contenido-solido {
+            background-color: var(--color-fondo);
+            padding: 80px 40px;
             text-align: center;
-            padding: 60px 20px;
-            color: var(--color-texto-secundario);
-            position: relative;
-            box-sizing: border-box;
         }
-
-        .seccion-scroll::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.55);
-        }
-
-        .contenido-centrado {
-            position: relative;
-            z-index: 1;
-            background-color: rgba(25, 25, 25, 0.35);
-            padding: 40px;
-            border-radius: 10px;
+        .contenido-interno {
             max-width: 800px;
-            backdrop-filter: blur(5px);
+            margin: 0 auto;
         }
-
-        /* --- Fondos para cada sección --- */
-        #foto-principal-bg { background-image: url('fotoportada.jpg'); }
-        #padres-bg { background-image: url('fotopadres.jpg'); }
-        #padrinos-bg { background-image: url('padrinos.jpg'); }
-        #itinerario-bg { background-image: url('inti.jpg'); }
-        #galeria-bg { background-image: url('galeria.jpg'); }
-        #vestimenta-bg { background-image: url('codigo.jpg'); }
-        #confirmacion-bg { background-image: url('nosacompas.jpg'); }
-
-        /* --- Contador --- */
-        #contador-contenedor {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .caja-contador {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 10px;
-            border-radius: 8px;
-            min-width: 80px;
-        }
-        .caja-contador span { font-size: 2.5rem; font-weight: bold; }
-        .caja-contador .etiqueta { font-size: 0.8rem; text-transform: uppercase; }
-
-        .boton-calendario {
-            display: inline-block; background-color: transparent; border: 1px solid white;
-            color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none;
-            font-size: 0.9rem; transition: all 0.3s ease;
-        }
-        .boton-calendario:hover { background-color: white; color: black; }
-
-        /* --- Sección de Padres --- */
-        .cita-religiosa {
-            font-style: italic; font-family: var(--fuente-elegante); font-size: 1.2rem;
-            max-width: 600px; margin: 0 auto 30px auto;
-        }
-        .texto-invitacion { font-size: 1rem; margin: 20px 0; line-height: 1.7; }
-        .nombres-anfitriones { font-family: var(--fuente-elegante); font-size: 2.8rem; font-weight: 700; margin: 15px 0; }
-        .nombres-padres-novio { font-family: var(--fuente-elegante); font-size: 2rem; font-weight: 400; margin: 15px 0; }
-        .nombres-boda { font-family: var(--fuente-elegante); font-style: italic; font-size: 4.5rem; margin: 25px 0 10px 0; line-height: 1; }
-
-        /* --- Itinerario --- */
-        .linea-tiempo { position: relative; max-width: 600px; margin: 0 auto; padding: 40px 0; }
-        .linea-tiempo::before {
-            content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
-            background-color: rgba(255, 255, 255, 0.5); transform: translateX(-50%);
-        }
-        .evento-tiempo { position: relative; width: 50%; padding: 10px 40px; box-sizing: border-box; }
-        .evento-tiempo:nth-child(odd) { left: 0; text-align: right; }
-        .evento-tiempo:nth-child(even) { left: 50%; text-align: left; }
-        .icono-tiempo {
-            position: absolute; top: 50%; width: 50px; height: 50px; border-radius: 50%;
-            background-color: var(--color-acento); display: flex; justify-content: center;
-            align-items: center; font-size: 1.5rem; transform: translateY(-50%); z-index: 1;
-        }
-        .evento-tiempo:nth-child(odd) .icono-tiempo { right: -25px; }
-        .evento-tiempo:nth-child(even) .icono-tiempo { left: -25px; }
-        .info-tiempo h3 { font-family: var(--fuente-elegante); font-size: 2rem; font-style: italic; font-weight: 400; margin: 0; }
-        .info-tiempo p { margin: 5px 0 0 0; font-size: 1.2rem; }
         
-        /* --- Galería --- */
-        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; width: 100%; }
+        /* Asignación de imágenes a cada sección */
+        #foto-principal-bg .seccion-imagen-parallax { background-image: url('fotoportada.jpg'); }
+        #padres-bg .seccion-imagen-parallax { background-image: url('fotopadres.jpg'); }
+        #padrinos-bg .seccion-imagen-parallax { background-image: url('padrinos.jpg'); }
+        #itinerario-bg .seccion-imagen-parallax { background-image: url('inti.jpg'); }
+        #vestimenta-bg .seccion-imagen-parallax { background-image: url('codigo.jpg'); }
+        #confirmacion-bg .seccion-imagen-parallax { background-image: url('nosacompas.jpg'); }
+
+        /* Estilo especial para la sección de galería que es de altura completa */
+        #galeria-bg {
+             padding: 80px 40px;
+             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('galeria.jpg');
+             background-attachment: fixed;
+             background-size: cover;
+             color: var(--color-texto-secundario);
+        }
+        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; width: 100%; max-width: 1200px; margin: 0 auto; }
         .galeria-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .galeria-grid img:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
-        /* --- Otros Estilos --- */
-        .boton-mapa {
-            display: inline-block; padding: 10px 20px; border: 2px solid var(--color-texto-secundario);
-            color: var(--color-texto-secundario); text-decoration: none; border-radius: 5px;
-            margin-top: 10px; transition: background-color 0.3s ease, color 0.3s ease;
+        /* --- Contador --- */
+        #contador-contenedor { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .caja-contador {
+            background-color: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.1);
+            padding: 15px; border-radius: 8px; min-width: 90px;
         }
-        .boton-mapa:hover { background-color: var(--color-texto-secundario); color: var(--color-texto-principal); }
+        .caja-contador span { font-size: 2.5rem; font-weight: bold; color: var(--color-texto-principal); }
+        .caja-contador .etiqueta { font-size: 0.8rem; text-transform: uppercase; color: var(--color-texto-principal); }
+
+        .boton-calendario {
+            display: inline-block; background-color: transparent; border: 1px solid var(--color-texto-principal);
+            color: var(--color-texto-principal); padding: 10px 20px; border-radius: 5px; text-decoration: none;
+            font-size: 1rem; transition: all 0.3s ease;
+        }
+        .boton-calendario:hover { background-color: var(--color-texto-principal); color: var(--color-fondo); }
         
-        /* CORRECCIÓN: Estilos para la sección de vestimenta */
-        .vestimenta-texto {
-            font-size: 3rem;
-            font-family: var(--fuente-titulos);
-            margin-bottom: 5px; 
+        /* --- Textos y Nombres --- */
+        .cita-religiosa { font-style: italic; font-family: var(--fuente-elegante); font-size: 1.5rem; max-width: 700px; margin: 0 auto 30px auto; }
+        .texto-invitacion { font-size: 1.1rem; margin: 20px 0; line-height: 1.7; }
+        .nombres-anfitriones { font-family: var(--fuente-elegante); font-size: 3rem; font-weight: 700; margin: 15px 0; }
+        .nombres-padres-novio { font-family: var(--fuente-elegante); font-size: 2rem; font-weight: 400; margin: 15px 0; }
+        .nombres-boda { font-family: var(--fuente-elegante); font-style: italic; font-size: 5rem; margin: 25px 0 10px 0; line-height: 1; }
+
+        /* --- NUEVO ITINERARIO --- */
+        .lista-itinerario { width: 100%; }
+        .item-itinerario {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
-        .subtexto-vestimenta {
-            font-size: 1rem;
-            font-style: italic;
-            margin-top: 0;
+        .item-itinerario:last-child { border-bottom: none; }
+        .icono-evento { font-size: 2rem; color: var(--color-acento); margin-right: 20px; }
+        .detalle-evento { text-align: left; flex-grow: 1; }
+        .detalle-evento h3 { margin: 0; font-size: 1.8rem; }
+        .detalle-evento p { margin: 0; font-size: 1.1rem; }
+        .boton-mapa-claro {
+            display: inline-block; padding: 10px 20px; border: 2px solid var(--color-acento);
+            color: var(--color-acento); text-decoration: none; border-radius: 5px;
+            margin-left: 20px; transition: background-color 0.3s ease, color 0.3s ease; white-space: nowrap;
         }
+        .boton-mapa-claro:hover { background-color: var(--color-acento); color: var(--color-fondo); }
+
+        /* --- Otros Estilos --- */
+        .vestimenta-texto { font-size: 3rem; font-family: var(--fuente-titulos); margin-bottom: 5px; }
+        .subtexto-vestimenta { font-size: 1rem; font-style: italic; margin-top: 0; }
         
         /* --- Formulario --- */
+        #rsvp-form { max-width: 500px; margin: 20px auto 0 auto; }
         #rsvp-form input, #rsvp-form select, #rsvp-form button {
             width: 100%; padding: 15px; margin-top: 10px; border-radius: 5px;
-            border: none; font-size: 1rem; box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.2); font-size: 1rem; box-sizing: border-box;
+            font-family: var(--fuente-texto);
         }
-        #rsvp-form button { background-color: var(--color-acento); color: white; cursor: pointer; transition: background-color 0.3s ease; }
+        #rsvp-form button { border: none; background-color: var(--color-acento); color: white; cursor: pointer; transition: background-color 0.3s ease; }
         #rsvp-form button:hover { background-color: var(--color-acento-oscuro); }
 
-        /* --- ESTILOS ESPECÍFICOS PARA TÍTULOS ESPECIALES --- */
-        .titulo-save-the-date {
-            font-family: var(--fuente-elegante);
-            font-size: 2.5rem;
-            font-style: italic;
+        /* --- Animaciones --- */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        .titulo-itinerario {
-            font-family: var(--fuente-elegante);
-            font-size: 4rem;
-            font-style: italic;
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* --- ESTILOS RESPONSIVE PARA MÓVILES --- */
         @media (max-width: 768px) {
-            .seccion-scroll {
-                background-attachment: scroll; 
-                padding-top: 120px;
-                padding-bottom: 120px;
-            }
-            .contenido-centrado {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
+            .seccion-imagen-parallax { height: 40vh; }
+            .seccion-contenido-solido { padding: 60px 20px; }
+            #galeria-bg { padding: 60px 20px; }
             .portada-contenido h1 { font-size: 3rem; }
             .nombres-boda { font-size: 3.5rem; }
-            .nombres-anfitriones { font-size: 2.2rem; }
             h2 { font-size: 2.2rem; }
-            
-            .titulo-save-the-date { font-size: 2.2rem; }
-            .titulo-itinerario { font-size: 3rem; }
-
-            .info-tiempo h3 { font-size: 1.8rem; }
-            .vestimenta-texto { font-size: 2.5rem; }
-
-            /* --- CORRECCIONES PARA MÓVIL --- */
-
-            /* 1. Arreglo del Contador */
-            .caja-contador {
-                min-width: 60px; /* Reduce minimum width */
-                padding: 8px;    /* Reduce padding */
-            }
-            .caja-contador span {
-                font-size: 1.8rem; /* Reduce number size */
-            }
-            .caja-contador .etiqueta {
-                font-size: 0.7rem; /* Reduce label size */
-            }
-
-            /* 2. Arreglo de la Línea de Tiempo (Itinerario) */
-            .linea-tiempo::before {
-                left: 25px; /* Move the line to the left */
-                transform: translateX(0);
-            }
-            .evento-tiempo,
-            .evento-tiempo:nth-child(even) {
-                width: 100%;
-                left: 0;
-                text-align: left; /* Align all text to the left */
-                padding-left: 70px; /* Add space for the icon */
-                padding-right: 15px;
-            }
-            .icono-tiempo,
-            .evento-tiempo:nth-child(odd) .icono-tiempo,
-            .evento-tiempo:nth-child(even) .icono-tiempo {
-                left: 0;
-            }
+            .item-itinerario { flex-wrap: wrap; } /* Permite que el botón baje si no cabe */
+            .detalle-evento { margin-bottom: 15px; }
+            .boton-mapa-claro { width: 100%; margin-left: 0; } /* El botón ocupa todo el ancho */
         }
     </style>
 </head>
@@ -295,164 +202,178 @@
     <div id="portada">
         <div class="portada-contenido">
             <h1>Libia & Ernesto</h1>
-            <p class="fecha-portada">30 de Enero, 2026</p>
+            <p>30 de Enero, 2026</p>
             <a id="verInvitacionBtn" class="boton-invitacion">Ver Invitación</a>
         </div>
     </div>
 
     <main id="invitacion-principal">
 
-        <section class="seccion-scroll" id="foto-principal-bg">
-            <div class="contenido-centrado">
-                <h2 class="titulo-save-the-date">Save the Date</h2>
-                <p style="font-size: 1.5rem;">30 de Enero, 2026</p>
-                
-                <div id="contador-contenedor">
-                    <div class="caja-contador"><span id="dias">00</span><span class="etiqueta">Días</span></div>
-                    <div class="caja-contador"><span id="horas">00</span><span class="etiqueta">Hrs</span></div>
-                    <div class="caja-contador"><span id="minutos">00</span><span class="etiqueta">Mins</span></div>
-                    <div class="caja-contador"><span id="segundos">00</span><span class="etiqueta">Segs</span></div>
-                </div>
-                <a id="botonCalendario" href="#" target="_blank" class="boton-calendario">
-                    <i class="far fa-calendar-alt"></i> Agregar a Calendario
-                </a>
-            </div>
-        </section>
-
-       <section class="seccion-scroll" id="padres-bg">
-            <div class="contenido-centrado">
-                <p class="cita-religiosa">
-                    "Bendito tú eres, señor, porque en los buenos y malos momentos de nuestro matrimonio has estado a nuestro lado."
-                </p>
-                <p class="texto-invitacion">
-                    Al celebrar la renovación de nuestros votos por 38 años de matrimonio,
-                </p>
-                <h2 class="nombres-anfitriones">Socorro del Campo Irizar & Tomas Diaz Mariscal</h2>
-                <p class="texto-invitacion">
-                    nos complace invitarles a ser testigos de nuestra alegría. Con la misma emoción, y en unión con los padres del novio,
-                </p>
-                <h3 class="nombres-padres-novio">Jesús Salazar & María Elena Rivas</h3>
-                <p class="texto-invitacion">
-                    tenemos el honor de invitarles al enlace matrimonial de nuestros hijos,
-                </p>
-                <h1 class="nombres-boda">Libia & Jesús</h1>
-            </div>
-        </section>
-
-        <section class="seccion-scroll" id="padrinos-bg">
-            <div class="contenido-centrado">
-                <h2>Nuestros Padrinos</h2>
-                <p>Quienes serán testigos de nuestro amor y nos guiarán en nuestro camino.</p>
-                <p><strong>Velación:</strong><br>Lorena Beatriz Irizar Zamudio & Aaron Schaffnitt Fierros</p>
-                <p><strong>Anillos:</strong><br>Hortencia del Campo Irizar & Victor Hugo Ochoa Benitez</p>
-                <p><strong>Arras:</strong><br>Jose Alfredo Del Campo & Fabiola</p>
-                <p><strong>Lazo:</strong><br>Diana Alejandra Diaz del Campo & Ulises Alejandro Sandoval Esparza</p>
-                <p><strong>Biblia y Rosario:</strong><br>Gerardo Ramirez Martinez & Alexandra Carballo Coronado</p>
-            </div>
-        </section>
-
-        <section class="seccion-scroll" id="itinerario-bg">
-            <div class="contenido-centrado">
-                 <h2 class="titulo-itinerario">Itinerario</h2>
-                <div class="linea-tiempo">
-                    <div class="evento-tiempo">
-                        <div class="icono-tiempo"><i class="fas fa-church"></i></div>
-                        <div class="info-tiempo">
-                            <h3>Ceremonia</h3>
-                            <p>5:00 PM</p>
-                            <a href="https://maps.app.goo.gl/pZMiG1Eazma7MaxH7" target="_blank" class="boton-mapa">Ver Ubicación</a>
-                        </div>
+        <article id="foto-principal-bg">
+            <div class="seccion-imagen-parallax"></div>
+            <div class="seccion-contenido-solido">
+                <div class="contenido-interno fade-in-section">
+                    <h2 style="font-family: var(--fuente-elegante); font-size: 3rem; font-style: italic;">Save the Date</h2>
+                    <p style="font-size: 1.5rem;">30 de Enero, 2026</p>
+                    <div id="contador-contenedor">
+                        <div class="caja-contador"><span id="dias">00</span><span class="etiqueta">Días</span></div>
+                        <div class="caja-contador"><span id="horas">00</span><span class="etiqueta">Hrs</span></div>
+                        <div class="caja-contador"><span id="minutos">00</span><span class="etiqueta">Mins</span></div>
+                        <div class="caja-contador"><span id="segundos">00</span><span class="etiqueta">Segs</span></div>
                     </div>
-                    <div class="evento-tiempo">
-                        <div class="icono-tiempo"><i class="fas fa-glass-cheers"></i></div>
-                        <div class="info-tiempo">
-                            <h3>Recepcion</h3>
-                            <p>7:00 PM</p>
-                            <a href="https://maps.app.goo.gl/XnPwbm7ALwdY2txr7" target="_blank" class="boton-mapa">Ver Ubicación</a>
-                        </div>
-                    </div>
-                    <div class="evento-tiempo">
-                        <div class="icono-tiempo"><i class="fas fa-utensils"></i></div>
-                        <div class="info-tiempo">
-                            <h3>Cena</h3>
-                            <p>8:30 PM</p>
-                        </div>
-                    </div>
-                    <div class="evento-tiempo">
-                        <div class="icono-tiempo"><i class="fas fa-music"></i></div>
-                        <div class="info-tiempo">
-                            <h3>Fiesta</h3>
-                            <p>9:30 PM</p>
-                        </div>
-                    </div>
+                    <a id="botonCalendario" href="#" target="_blank" class="boton-calendario">
+                        <i class="far fa-calendar-alt"></i> Agregar a Calendario
+                    </a>
                 </div>
             </div>
-        </section>
+        </article>
 
-        <section class="seccion-scroll" id="galeria-bg">
-            <div class="contenido-centrado">
-                <h2>Nuestros Momentos</h2>
+       <article id="padres-bg">
+           <div class="seccion-imagen-parallax"></div>
+           <div class="seccion-contenido-solido">
+               <div class="contenido-interno fade-in-section">
+                    <p class="cita-religiosa">"Bendito tú eres, señor, porque en los buenos y malos momentos de nuestro matrimonio has estado a nuestro lado."</p>
+                    <p class="texto-invitacion">Al celebrar la renovación de nuestros votos por 38 años de matrimonio,</p>
+                    <h2 class="nombres-anfitriones">Socorro del Campo Irizar & Tomas Diaz Mariscal</h2>
+                    <p class="texto-invitacion">nos complace invitarles a ser testigos de nuestra alegría. Con la misma emoción, y en unión con los padres del novio,</p>
+                    <h3 class="nombres-padres-novio">Jesús Salazar & María Elena Rivas</h3>
+                    <p class="texto-invitacion">tenemos el honor de invitarles al enlace matrimonial de nuestros hijos,</p>
+                    <h1 class="nombres-boda">Libia & Jesús</h1>
+                </div>
+           </div>
+        </article>
+
+        <article id="padrinos-bg">
+            <div class="seccion-imagen-parallax"></div>
+            <div class="seccion-contenido-solido">
+                <div class="contenido-interno fade-in-section">
+                    <h2>Nuestros Padrinos</h2>
+                    <p>Quienes serán testigos de nuestro amor y nos guiarán en nuestro camino.</p>
+                    <p><strong>Velación:</strong> Lorena Beatriz Irizar Zamudio & Aaron Schaffnitt Fierros</p>
+                    <p><strong>Anillos:</strong> Hortencia del Campo Irizar & Victor Hugo Ochoa Benitez</p>
+                    <p><strong>Arras:</strong> Jose Alfredo Del Campo & Fabiola</p>
+                    <p><strong>Lazo:</strong> Diana Alejandra Diaz del Campo & Ulises Alejandro Sandoval Esparza</p>
+                    <p><strong>Biblia y Rosario:</strong> Gerardo Ramirez Martinez & Alexandra Carballo Coronado</p>
+                </div>
+            </div>
+        </article>
+
+        <article id="itinerario-bg">
+             <div class="seccion-imagen-parallax"></div>
+             <div class="seccion-contenido-solido">
+                 <div class="contenido-interno fade-in-section">
+                    <h2 style="font-size: 3.5rem; font-family: var(--fuente-elegante); font-style: italic;">Itinerario</h2>
+                    <div class="lista-itinerario">
+                        <div class="item-itinerario">
+                            <div class="icono-evento"><i class="fas fa-church"></i></div>
+                            <div class="detalle-evento">
+                                <h3>Ceremonia</h3><p>5:00 PM</p>
+                            </div>
+                            <a href="DIRECT_GOOGLE_MAPS_URL_CEREMONY" target="_blank" class="boton-mapa-claro">Ver Ubicación</a>
+                        </div>
+                        <div class="item-itinerario">
+                            <div class="icono-evento"><i class="fas fa-glass-cheers"></i></div>
+                            <div class="detalle-evento">
+                                <h3>Recepcion</h3><p>7:00 PM</p>
+                            </div>
+                            <a href="DIRECT_GOOGLE_MAPS_URL_RECEPTION" target="_blank" class="boton-mapa-claro">Ver Ubicación</a>
+                        </div>
+                        <div class="item-itinerario">
+                           <div class="icono-evento"><i class="fas fa-utensils"></i></div>
+                           <div class="detalle-evento">
+                               <h3>Cena</h3><p>8:30 PM</p>
+                           </div>
+                        </div>
+                        <div class="item-itinerario">
+                           <div class="icono-evento"><i class="fas fa-music"></i></div>
+                           <div class="detalle-evento">
+                               <h3>Fiesta</h3><p>9:30 PM</p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </article>
+
+        <section id="galeria-bg">
+            <div class="contenido-interno fade-in-section">
+                <h2 style="font-size: 3.5rem; font-family: var(--fuente-elegante); font-style: italic;">Nuestros Momentos</h2>
                 <div class="galeria-grid">
-                    <img src="galeria1.jpg" alt="galeria1.jpg">
-                    <img src="galeria2.jpg" alt="galeria2.jpg">
-                    <img src="galeria3.jpg" alt="Foto de la pareja 3">
-                    <img src="galeria4.jpg" alt="Foto de la pareja 4">
-                    <img src="galeria5.jpg" alt="Foto de la pareja 5">
-                    <img src="galeria6.jpg" alt="Foto de la pareja 6">
-                    <img src="galeria7.jpg" alt="Foto de la pareja 7">
-                    <img src="galeria8.jpg" alt="Foto de la pareja 8">
-                    <img src="galeria9.jpg" alt="Foto de la pareja 9">
-                    <img src="galeria10.jpg" alt="Foto de la pareja 10">
+                    <img src="galeria1.jpg" alt="galeria1.jpg"><img src="galeria2.jpg" alt="galeria2.jpg">
+                    <img src="galeria3.jpg" alt="Foto de la pareja 3"><img src="galeria4.jpg" alt="Foto de la pareja 4">
+                    <img src="galeria5.jpg" alt="Foto de la pareja 5"><img src="galeria6.jpg" alt="Foto de la pareja 6">
+                    <img src="galeria7.jpg" alt="Foto de la pareja 7"><img src="galeria8.jpg" alt="Foto de la pareja 8">
+                    <img src="galeria9.jpg" alt="Foto de la pareja 9"><img src="galeria10.jpg" alt="Foto de la pareja 10">
                 </div>
             </div>
         </section>
 
-        <section class="seccion-scroll" id="vestimenta-bg">
-            <div class="contenido-centrado">
-                <h2>Código de Vestimenta</h2>
-                <p class="vestimenta-texto">Formal</p>
-                <p class="subtexto-vestimenta">(No color Blanco ni Rojo)</p>
-            </div>
-        </section>
+        <article id="vestimenta-bg">
+             <div class="seccion-imagen-parallax"></div>
+             <div class="seccion-contenido-solido">
+                 <div class="contenido-interno fade-in-section">
+                    <h2>Código de Vestimenta</h2>
+                    <p class="vestimenta-texto">Formal</p>
+                    <p class="subtexto-vestimenta">(No color Blanco ni Rojo)</p>
+                 </div>
+             </div>
+        </article>
 
-        <section class="seccion-scroll" id="confirmacion-bg">
-            <div class="contenido-centrado">
-                <h2>Confirmar Asistencia</h2>
-                <form id="rsvp-form">
-                    <input type="text" name="nombre" placeholder="Escribe tu nombre completo" required>
-                    <select name="asistencia" required>
-                        <option value="" disabled selected>¿Nos acompañarás?</option>
-                        <option value="Sí, asistiré">¡Sí, allí estaré!</option>
-                        <option value="No podré asistir">No podré asistir</option>
-                    </select>
-                    <button type="submit">Enviar Confirmación</button>
-                </form>
-                <p id="mensaje-gracias" style="display:none; margin-top: 15px;">¡Gracias por tu confirmación!</p>
+        <article id="confirmacion-bg">
+            <div class="seccion-imagen-parallax"></div>
+            <div class="seccion-contenido-solido">
+                <div class="contenido-interno fade-in-section">
+                    <h2>Confirmar Asistencia</h2>
+                    <form id="rsvp-form">
+                        <input type="text" name="nombre" placeholder="Escribe tu nombre completo" required>
+                        <select name="asistencia" required>
+                            <option value="" disabled selected>¿Nos acompañarás?</option>
+                            <option value="Sí, asistiré">¡Sí, allí estaré!</option>
+                            <option value="No podré asistir">No podré asistir</option>
+                        </select>
+                        <button type="submit">Enviar Confirmación</button>
+                    </form>
+                    <p id="mensaje-gracias" style="display:none; margin-top: 15px;">¡Gracias por tu confirmación!</p>
+                </div>
             </div>
-        </section>
+        </article>
     </main>
 
     <script>
         // --- CONFIGURACIÓN PRINCIPAL (MODIFICA ESTOS VALORES) ---
         const config = {
-            // Formato: AÑO, MES (0=Ene, 1=Feb...), DÍA, HORA (0-23), MINUTO
-            fechaBoda: new Date(2026, 0, 30, 17, 0, 0), // 30 de Enero 2026 a las 5:00 PM
+            fechaBoda: new Date(2026, 0, 30, 17, 0, 0),
             tituloCalendario: "Boda Libia & Ernesto",
             ubicacionCeremonia: "Parroquia de Nuestra Señora de Guadalupe, Puerto Vallarta",
-            // ▼▼▼ ¡IMPORTANTE! PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE SHEETS ▼▼▼
             urlGoogleSheet: "URL_DE_TU_APP_WEB_AQUÍ"
         };
 
-        // --- SCRIPT PARA MOSTRAR/OCULTAR PORTADA ---
-        document.getElementById('verInvitacionBtn').addEventListener('click', function() {
-            const portada = document.getElementById('portada');
-            portada.classList.add('oculta');
-            setTimeout(() => {
-                portada.style.display = 'none';
-            }, 1000);
+        // --- SCRIPT PARA PORTADA Y ANIMACIONES ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Portada
+            document.getElementById('verInvitacionBtn').addEventListener('click', function() {
+                const portada = document.getElementById('portada');
+                portada.classList.add('oculta');
+                setTimeout(() => {
+                    portada.style.display = 'none';
+                }, 1000);
+            });
+
+            // Animaciones al hacer scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-section').forEach(section => {
+                observer.observe(section);
+            });
         });
 
-        // --- SCRIPT DEL CONTADOR (ACTUALIZADO) ---
+        // --- SCRIPT DEL CONTADOR ---
         const fechaEvento = config.fechaBoda.getTime();
         const diasEl = document.getElementById('dias');
         const horasEl = document.getElementById('horas');
@@ -462,65 +383,57 @@
         const intervalo = setInterval(function() {
             const ahora = new Date().getTime();
             const distancia = fechaEvento - ahora;
-
             if (distancia < 0) {
                 clearInterval(intervalo);
-                document.getElementById('contador-contenedor').innerHTML = "<h2>¡El gran día ha llegado!</h2>";
+                if(document.getElementById('contador-contenedor')) {
+                    document.getElementById('contador-contenedor').innerHTML = "<h2>¡El gran día ha llegado!</h2>";
+                }
                 return;
             }
-
             const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
             const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
             if(diasEl) diasEl.innerText = String(dias).padStart(2, '0');
             if(horasEl) horasEl.innerText = String(horas).padStart(2, '0');
             if(minutosEl) minutosEl.innerText = String(minutos).padStart(2, '0');
             if(segundosEl) segundosEl.innerText = String(segundos).padStart(2, '0');
         }, 1000);
 
-        // --- SCRIPT PARA EL BOTÓN "AGREGAR A CALENDARIO" ---
+        // --- SCRIPT PARA "AGREGAR A CALENDARIO" ---
         function generarLinkCalendario() {
             const fechaInicio = config.fechaBoda;
-            // Duración del evento (ej. 6 horas)
             const fechaFin = new Date(fechaInicio.getTime() + (6 * 60 * 60 * 1000));
-            
-            // Formato de fecha para Google Calendar (YYYYMMDDTHHMMSSZ)
             const formatoFecha = (fecha) => fecha.toISOString().replace(/-|:|\.\d+/g, '');
-
             const url = new URL('https://www.google.com/calendar/render');
             url.searchParams.append('action', 'TEMPLATE');
             url.searchParams.append('text', config.tituloCalendario);
             url.searchParams.append('dates', `${formatoFecha(fechaInicio)}/${formatoFecha(fechaFin)}`);
             url.searchParams.append('location', config.ubicacionCeremonia);
             url.searchParams.append('details', `Acompáñanos a celebrar la boda de ${config.tituloCalendario}.`);
-            
-            document.getElementById('botonCalendario').href = url.toString();
+            const boton = document.getElementById('botonCalendario');
+            if(boton) boton.href = url.toString();
         }
         generarLinkCalendario();
 
         // --- SCRIPT DEL FORMULARIO DE GOOGLE SHEETS ---
         const form = document.getElementById('rsvp-form');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const data = new FormData(form);
-            const action = config.urlGoogleSheet;
-            
-            if (action === "URL_DE_TU_APP_WEB_AQUÍ") {
-                alert("La URL para confirmar la asistencia no está configurada.");
-                return;
-            }
-
-            fetch(action, {
-                method: 'POST',
-                body: data,
-            })
-            .then(() => {
-                document.getElementById('mensaje-gracias').style.display = 'block';
-                form.style.display = 'none';
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const data = new FormData(form);
+                const action = config.urlGoogleSheet;
+                if (action === "URL_DE_TU_APP_WEB_AQUÍ") {
+                    alert("La URL para confirmar la asistencia no está configurada.");
+                    return;
+                }
+                fetch(action, { method: 'POST', body: data, })
+                .then(() => {
+                    document.getElementById('mensaje-gracias').style.display = 'block';
+                    form.style.display = 'none';
+                });
             });
-        });
+        }
     </script>
 </body>
 </html>
