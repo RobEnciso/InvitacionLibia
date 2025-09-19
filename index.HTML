@@ -255,6 +255,39 @@
 
             .info-tiempo h3 { font-size: 1.8rem; }
             .vestimenta-texto { font-size: 2.5rem; }
+
+            /* --- CORRECCIONES PARA MÓVIL --- */
+
+            /* 1. Arreglo del Contador */
+            .caja-contador {
+                min-width: 60px; /* Reduce minimum width */
+                padding: 8px;    /* Reduce padding */
+            }
+            .caja-contador span {
+                font-size: 1.8rem; /* Reduce number size */
+            }
+            .caja-contador .etiqueta {
+                font-size: 0.7rem; /* Reduce label size */
+            }
+
+            /* 2. Arreglo de la Línea de Tiempo (Itinerario) */
+            .linea-tiempo::before {
+                left: 25px; /* Move the line to the left */
+                transform: translateX(0);
+            }
+            .evento-tiempo,
+            .evento-tiempo:nth-child(even) {
+                width: 100%;
+                left: 0;
+                text-align: left; /* Align all text to the left */
+                padding-left: 70px; /* Add space for the icon */
+                padding-right: 15px;
+            }
+            .icono-tiempo,
+            .evento-tiempo:nth-child(odd) .icono-tiempo,
+            .evento-tiempo:nth-child(even) .icono-tiempo {
+                left: 0;
+            }
         }
     </style>
 </head>
@@ -313,7 +346,7 @@
                 <p><strong>Velación:</strong><br>Lorena Beatriz Irizar Zamudio & Aaron Schaffnitt Fierros</p>
                 <p><strong>Anillos:</strong><br>Hortencia del Campo Irizar & Victor Hugo Ochoa Benitez</p>
                 <p><strong>Arras:</strong><br>Jose Alfredo Del Campo & Fabiola</p>
-                <p><strong>Lazo:</strong><br>diana Alejandra Diaz del Campo & Ulises Alejandro Sandoval Esparza</p>
+                <p><strong>Lazo:</strong><br>Diana Alejandra Diaz del Campo & Ulises Alejandro Sandoval Esparza</p>
                 <p><strong>Biblia y Rosario:</strong><br>Gerardo Ramirez Martinez & Alexandra Carballo Coronado</p>
             </div>
         </section>
@@ -327,7 +360,7 @@
                         <div class="info-tiempo">
                             <h3>Ceremonia</h3>
                             <p>5:00 PM</p>
-                            <a href="DIRECT_GOOGLE_MAPS_URL_CEREMONY" target="_blank" class="boton-mapa">Ver Ubicación</a>
+                            <a href="https://maps.app.goo.gl/pZMiG1Eazma7MaxH7" target="_blank" class="boton-mapa">Ver Ubicación</a>
                         </div>
                     </div>
                     <div class="evento-tiempo">
@@ -335,7 +368,7 @@
                         <div class="info-tiempo">
                             <h3>Recepcion</h3>
                             <p>7:00 PM</p>
-                            <a href="DIRECT_GOOGLE_MAPS_URL_RECEPTION" target="_blank" class="boton-mapa">Ver Ubicación</a>
+                            <a href="https://maps.app.goo.gl/XnPwbm7ALwdY2txr7" target="_blank" class="boton-mapa">Ver Ubicación</a>
                         </div>
                     </div>
                     <div class="evento-tiempo">
