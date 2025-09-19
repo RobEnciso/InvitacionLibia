@@ -76,12 +76,8 @@
         .portada-contenido p {
             font-size: 1.5rem;
         }
-
-        .fecha-portada {
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-
+        
+        /* CORRECCIÓN: Estilos del botón de la portada */
         .boton-invitacion {
             display: inline-block;
             padding: 15px 30px;
@@ -131,7 +127,7 @@
             backdrop-filter: blur(5px);
         }
 
-        /* --- Fondos para cada sección (CAMBIA LOS ENLACES DE LAS FOTOS) --- */
+        /* --- Fondos para cada sección --- */
         #foto-principal-bg { background-image: url('fotoportada.jpg'); }
         #padres-bg { background-image: url('fotopadres.jpg'); }
         #padrinos-bg { background-image: url('padrinos.jpg'); }
@@ -154,110 +150,51 @@
             border-radius: 8px;
             min-width: 80px;
         }
-        .caja-contador span {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-        .caja-contador .etiqueta {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-        }
-        .boton-calendario {
-            display: inline-block;
-            background-color: transparent;
-            border: 1px solid white;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        .boton-calendario:hover {
-            background-color: white;
-            color: black;
-        }
+        .caja-contador span { font-size: 2.5rem; font-weight: bold; }
+        .caja-contador .etiqueta { font-size: 0.8rem; text-transform: uppercase; }
 
-        /* --- ESTILOS PARA LA SECCIÓN DE PADRES (ACTUALIZADOS) --- */
+        .boton-calendario {
+            display: inline-block; background-color: transparent; border: 1px solid white;
+            color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none;
+            font-size: 0.9rem; transition: all 0.3s ease;
+        }
+        .boton-calendario:hover { background-color: white; color: black; }
+
+        /* --- Sección de Padres --- */
         .cita-religiosa {
-            font-style: italic;
-            font-family: var(--fuente-elegante);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
+            font-style: italic; font-family: var(--fuente-elegante); font-size: 1.2rem;
+            max-width: 600px; margin: 0 auto 30px auto;
         }
-        .texto-invitacion {
-            font-size: 1rem;
-            margin: 20px 0;
-            line-height: 1.7;
-        }
-        .nombres-anfitriones {
-            font-family: var(--fuente-elegante);
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin: 15px 0;
-        }
-        .nombres-padres-novio {
-            font-family: var(--fuente-elegante);
-            font-size: 2rem;
-            font-weight: 400;
-            margin: 15px 0;
-        }
-        .nombres-boda {
-            font-family: var(--fuente-elegante);
-            font-style: italic;
-            font-size: 4.5rem;
-            margin: 25px 0 10px 0;
-            line-height: 1;
-        }
+        .texto-invitacion { font-size: 1rem; margin: 20px 0; line-height: 1.7; }
+        .nombres-anfitriones { font-family: var(--fuente-elegante); font-size: 2.8rem; font-weight: 700; margin: 15px 0; }
+        .nombres-padres-novio { font-family: var(--fuente-elegante); font-size: 2rem; font-weight: 400; margin: 15px 0; }
+        .nombres-boda { font-family: var(--fuente-elegante); font-style: italic; font-size: 4.5rem; margin: 25px 0 10px 0; line-height: 1; }
 
         /* --- Itinerario --- */
-        .linea-tiempo {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 0;
-        }
+        .linea-tiempo { position: relative; max-width: 600px; margin: 0 auto; padding: 40px 0; }
         .linea-tiempo::before {
-            content: ''; position: absolute; left: 50%; top: 0;
-            bottom: 0; width: 2px; background-color: rgba(255, 255, 255, 0.5);
-            transform: translateX(-50%);
+            content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+            background-color: rgba(255, 255, 255, 0.5); transform: translateX(-50%);
         }
-        .evento-tiempo {
-            position: relative; width: 50%; padding: 10px 40px; box-sizing: border-box;
-        }
+        .evento-tiempo { position: relative; width: 50%; padding: 10px 40px; box-sizing: border-box; }
         .evento-tiempo:nth-child(odd) { left: 0; text-align: right; }
         .evento-tiempo:nth-child(even) { left: 50%; text-align: left; }
         .icono-tiempo {
-            position: absolute; top: 50%; width: 50px; height: 50px;
-            border-radius: 50%; background-color: var(--color-acento); display: flex;
-            justify-content: center; align-items: center; font-size: 1.5rem;
-            transform: translateY(-50%); z-index: 1;
+            position: absolute; top: 50%; width: 50px; height: 50px; border-radius: 50%;
+            background-color: var(--color-acento); display: flex; justify-content: center;
+            align-items: center; font-size: 1.5rem; transform: translateY(-50%); z-index: 1;
         }
         .evento-tiempo:nth-child(odd) .icono-tiempo { right: -25px; }
         .evento-tiempo:nth-child(even) .icono-tiempo { left: -25px; }
-        .info-tiempo h3 {
-            font-family: var(--fuente-elegante); font-size: 2rem;
-            font-style: italic; font-weight: 400; margin: 0;
-        }
+        .info-tiempo h3 { font-family: var(--fuente-elegante); font-size: 2rem; font-style: italic; font-weight: 400; margin: 0; }
         .info-tiempo p { margin: 5px 0 0 0; font-size: 1.2rem; }
         
         /* --- Galería --- */
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px; width: 100%;
-        }
-        .galeria-grid img {
-            width: 100%; height: 100%; object-fit: cover;
-            border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .galeria-grid img:hover {
-            transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
+        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; width: 100%; }
+        .galeria-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .galeria-grid img:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
         /* --- Otros Estilos --- */
-        .vestimenta-texto { font-size: 2rem; font-family: var(--fuente-titulos); }
         .boton-mapa {
             display: inline-block; padding: 10px 20px; border: 2px solid var(--color-texto-secundario);
             color: var(--color-texto-secundario); text-decoration: none; border-radius: 5px;
@@ -265,47 +202,59 @@
         }
         .boton-mapa:hover { background-color: var(--color-texto-secundario); color: var(--color-texto-principal); }
         
-        /* Formulario */
+        /* CORRECCIÓN: Estilos para la sección de vestimenta */
+        .vestimenta-texto {
+            font-size: 3rem;
+            font-family: var(--fuente-titulos);
+            margin-bottom: 5px; 
+        }
+        .subtexto-vestimenta {
+            font-size: 1rem;
+            font-style: italic;
+            margin-top: 0;
+        }
+        
+        /* --- Formulario --- */
         #rsvp-form input, #rsvp-form select, #rsvp-form button {
             width: 100%; padding: 15px; margin-top: 10px; border-radius: 5px;
             border: none; font-size: 1rem; box-sizing: border-box;
         }
-        #rsvp-form button {
-            background-color: var(--color-acento); color: white; cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+        #rsvp-form button { background-color: var(--color-acento); color: white; cursor: pointer; transition: background-color 0.3s ease; }
         #rsvp-form button:hover { background-color: var(--color-acento-oscuro); }
 
-        /* --- AJUSTES ESPECÍFICOS --- */
-        #itinerario-bg .contenido-centrado {
-            padding-left: 60px;
-            padding-right: 60px;
+        /* --- ESTILOS ESPECÍFICOS PARA TÍTULOS ESPECIALES --- */
+        .titulo-save-the-date {
+            font-family: var(--fuente-elegante);
+            font-size: 2.5rem;
+            font-style: italic;
+        }
+        .titulo-itinerario {
+            font-family: var(--fuente-elegante);
+            font-size: 4rem;
+            font-style: italic;
         }
 
         /* --- ESTILOS RESPONSIVE PARA MÓVILES --- */
         @media (max-width: 768px) {
             .seccion-scroll {
-                background-attachment: scroll; /* Mejora el rendimiento en móviles */
-                padding-top: 100px;
-                padding-bottom: 100px;
+                background-attachment: scroll; 
+                padding-top: 120px;
+                padding-bottom: 120px;
             }
             .contenido-centrado {
                 padding-left: 20px;
                 padding-right: 20px;
             }
-            #itinerario-bg .contenido-centrado {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            .nombres-boda { font-size: 3.5rem !important; }
-            .nombres-anfitriones { font-size: 2rem !important; }
-            #foto-principal-bg h2, #padres-bg h2, #padrinos-bg h2, #galeria-bg h2, #vestimenta-bg h2, #confirmacion-bg h2 {
-                font-size: 2.2rem !important;
-            }
-            #itinerario-bg h2 {
-                font-size: 2.8rem !important; /* Se mantiene !important para anular el estilo en línea */
-            }
-            .info-tiempo h3 { font-size: 1.5rem !important; }
+            .portada-contenido h1 { font-size: 3rem; }
+            .nombres-boda { font-size: 3.5rem; }
+            .nombres-anfitriones { font-size: 2.2rem; }
+            h2 { font-size: 2.2rem; }
+            
+            .titulo-save-the-date { font-size: 2.2rem; }
+            .titulo-itinerario { font-size: 3rem; }
+
+            .info-tiempo h3 { font-size: 1.8rem; }
+            .vestimenta-texto { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -322,7 +271,7 @@
 
         <section class="seccion-scroll" id="foto-principal-bg">
             <div class="contenido-centrado">
-                <h2 style="font-family: var(--fuente-elegante); font-size: 2.5rem; font-style: italic;">Save the Date</h2>
+                <h2 class="titulo-save-the-date">Save the Date</h2>
                 <p style="font-size: 1.5rem;">30 de Enero, 2026</p>
                 
                 <div id="contador-contenedor">
@@ -364,14 +313,14 @@
                 <p><strong>Velación:</strong><br>Lorena Beatriz Irizar Zamudio & Aaron Schaffnitt Fierros</p>
                 <p><strong>Anillos:</strong><br>Hortencia del Campo Irizar & Victor Hugo Ochoa Benitez</p>
                 <p><strong>Arras:</strong><br>Jose Alfredo Del Campo & Fabiola</p>
-                <p><strong>Lazo:</strong><br>Diana Alejandra Diaz del Campo & Ulises Alejandro Sandoval Esparza</p>
+                <p><strong>Lazo:</strong><br>diana Alejandra Diaz del Campo & Ulises Alejandro Sandoval Esparza</p>
                 <p><strong>Biblia y Rosario:</strong><br>Gerardo Ramirez Martinez & Alexandra Carballo Coronado</p>
             </div>
         </section>
 
         <section class="seccion-scroll" id="itinerario-bg">
             <div class="contenido-centrado">
-                <h2 style="font-family: var(--fuente-elegante); font-size: 4rem; font-style: italic;">Itinerario</h2>
+                 <h2 class="titulo-itinerario">Itinerario</h2>
                 <div class="linea-tiempo">
                     <div class="evento-tiempo">
                         <div class="icono-tiempo"><i class="fas fa-church"></i></div>
@@ -428,7 +377,8 @@
         <section class="seccion-scroll" id="vestimenta-bg">
             <div class="contenido-centrado">
                 <h2>Código de Vestimenta</h2>
-                <p class="vestimenta-texto">Formal</p><br>(No color Blanco ni Rojo)
+                <p class="vestimenta-texto">Formal</p>
+                <p class="subtexto-vestimenta">(No color Blanco ni Rojo)</p>
             </div>
         </section>
 
@@ -454,7 +404,7 @@
         const config = {
             // Formato: AÑO, MES (0=Ene, 1=Feb...), DÍA, HORA (0-23), MINUTO
             fechaBoda: new Date(2026, 0, 30, 17, 0, 0), // 30 de Enero 2026 a las 5:00 PM
-            tituloCalendario: "Boda Libia & Jesús",
+            tituloCalendario: "Boda Libia & Ernesto",
             ubicacionCeremonia: "Parroquia de Nuestra Señora de Guadalupe, Puerto Vallarta",
             // ▼▼▼ ¡IMPORTANTE! PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE SHEETS ▼▼▼
             urlGoogleSheet: "URL_DE_TU_APP_WEB_AQUÍ"
