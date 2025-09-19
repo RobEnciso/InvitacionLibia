@@ -274,7 +274,7 @@
             fechaBoda: new Date(2026, 0, 30, 17, 0, 0),
             tituloCalendario: "Boda Libia & Ernesto",
             ubicacionCeremonia: "Cuasiparroquia Maria Reina de la Paz, Puerto Vallarta",
-            urlGoogleSheet: "URL_DE_TU_APP_WEB_AQUÍ"
+            urlGoogleSheet: "https://script.google.com/macros/s/AKfycbweVP4ecdpWdK4oVzV27zX849KDSV3HFS1FjMOSiCM0pyWgkBwbwQd5QsWXLnQqTry_/exec"
         };
 
         // --- SCRIPTS DE FUNCIONALIDAD ---
@@ -320,17 +320,24 @@
             if(segundosEl) segundosEl.innerText = String(segundos).padStart(2, '0');
         }, 1000);
 
-        // --- SCRIPT PARA "AGREGAR A CALENDARIO" ---
+       // --- SCRIPT PARA "AGREGAR A CALENDARIO" (VERSIÓN CORREGIDA) ---
         function generarLinkCalendario() {
             const fechaInicio = config.fechaBoda;
-            const fechaFin = new Date(fechaInicio.getTime() + 21600000);
-            const formatoFecha = (fecha) => fecha.toISOString().replace(/[-:.]\d+/g, '');
+            // El evento durará 6 horas desde el inicio de la ceremonia
+            const fechaFin = new Date(fechaInicio.getTime() + (6 * 60 * 60 * 1000));
+            
+            // Función para dar el formato de fecha que Google Calendar entiende (YYYYMMDDTHHMMSSZ)
+            const formatoFechaUTC = (fecha) => {
+                return fecha.toISOString().replace(/-|:|\.\d+/g, '');
+            };
+
             const url = new URL('https://www.google.com/calendar/render');
             url.searchParams.append('action', 'TEMPLATE');
             url.searchParams.append('text', config.tituloCalendario);
-            url.searchParams.append('dates', `${formatoFecha(fechaInicio)}/${formatoFecha(fechaFin)}`);
+            url.searchParams.append('dates', `${formatoFechaUTC(fechaInicio)}/${formatoFechaUTC(fechaFin)}`);
             url.searchParams.append('location', config.ubicacionCeremonia);
-            url.searchParams.append('details', `Acompáñanos a celebrar la boda de ${config.tituloCalendario}.`);
+            url.searchParams.append('details', `Acompáñanos a celebrar la boda de ${config.tituloCalendario}. Detalles en: https://libiayernesto.netlify.app/`);
+            
             const boton = document.getElementById('botonCalendario');
             if(boton) boton.href = url.toString();
         }
