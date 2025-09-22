@@ -267,6 +267,7 @@
             </div>
         </article>
     </main>
+    <audio id="musica-fondo" src="cancion.mp3" loop></audio>
 
     <script>
         // --- CONFIGURACIÓN PRINCIPAL ---
@@ -283,6 +284,8 @@
             const verInvitacionBtn = document.getElementById('verInvitacionBtn');
             if(verInvitacionBtn) {
                 verInvitacionBtn.addEventListener('click', function() {
+                // --- LÍNEA NUEVA: Inicia la música ---
+                    document.getElementById('musica-fondo').play();
                     document.getElementById('portada').classList.add('oculta');
                     setTimeout(() => { document.getElementById('portada').style.display = 'none'; }, 1000);
                 });
