@@ -4,137 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda - Libia & Ernesto</title>
+    
     <meta property="og:title" content="Nuestra Boda - Libia & Ernesto">
     <meta property="og:description" content="Tenemos el honor de invitarte a celebrar nuestro amor. ¡Acompáñanos en este día tan especial!">
     <meta property="og:image" content="https://libiayernesto.netlify.app/miniatura.jpg">
     <meta property="og:url" content="https://libiayernesto.netlify.app/">
     <meta property="og:type" content="website">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
-        :root {
-            --color-fondo: #f4f1eb;
-            --color-texto-principal: #3a3a3a;
-            --color-texto-secundario: #ffffff;
-            --color-acento: #8a7967;
-            --color-acento-oscuro: #6d5f50;
-            --fuente-titulos: 'Playfair Display', serif;
-            --fuente-texto: 'Montserrat', sans-serif;
-            --fuente-elegante: 'Cormorant Garamond', serif;
-        }
-        html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: var(--fuente-texto); color: var(--color-texto-principal); background-color: var(--color-fondo); overflow-x: hidden; }
-        h1, h2, h3 { font-family: var(--fuente-titulos); font-weight: 700; margin: 10px 0; }
-        p { line-height: 1.6; font-size: 1rem; }
-
-        #portada {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('principal.jpg');
-            background-size: cover; background-position: center; height: 100vh;
-            display: flex; justify-content: center; align-items: center; text-align: center;
-            color: var(--color-texto-secundario); position: fixed; top: 0; left: 0;
-            width: 100%; z-index: 100; transition: opacity 1s ease-out;
-        }
-        #portada.oculta { opacity: 0; pointer-events: none; }
-        .portada-contenido h1 { font-size: 4.5rem; margin-bottom: 0; }
-        .portada-contenido p { font-size: 1.5rem; }
-        .boton-invitacion {
-            display: inline-block; padding: 15px 30px; background-color: var(--color-acento);
-            color: var(--color-texto-secundario); text-decoration: none; border-radius: 5px;
-            font-size: 1.2rem; transition: background-color 0.3s ease; cursor: pointer;
-        }
-        .boton-invitacion:hover { background-color: var(--color-acento-oscuro); }
-
-        .seccion-wrapper { position: relative; display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; }
-        .seccion-imagen-sticky {
-            grid-column: 1 / -1; grid-row: 1 / -1;
-            position: sticky; top: 0; height: 100vh;
-            background-size: cover; background-position: center;
-        }
-        .seccion-contenido-solido {
-            grid-column: 1 / -1; grid-row: 1 / -1;
-            position: relative; background-color: var(--color-fondo);
-            padding: 120px 40px; /* Más padding para ver más la foto */
-            text-align: center; margin-top: 100vh; z-index: 2;
-        }
-        .contenido-interno { max-width: 800px; margin: 0 auto; }
-
-        #save-the-date .seccion-imagen-sticky { background-image: url('fotoportada.jpg'); }
-        #padres .seccion-imagen-sticky { background-image: url('fotopadres.jpg'); }
-        #padrinos .seccion-imagen-sticky { background-image: url('padrinos.jpg'); }
-        #itinerario .seccion-imagen-sticky { background-image: url('inti.jpg'); }
-        #vestimenta .seccion-imagen-sticky { background-image: url('codigo.jpg'); }
-        #confirmacion .seccion-imagen-sticky { background-image: url('nosacompas.jpg'); } /* Foto para la última sección */
-
-        #galeria {
-             padding: 80px 40px; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('galeria.jpg');
-             background-attachment: fixed; background-size: cover; color: var(--color-texto-secundario);
-             position: relative; z-index: 3;
-        }
-        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; width: 100%; max-width: 1200px; margin: 0 auto; }
-        .galeria-grid img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease; }
-        .galeria-grid img:hover { transform: scale(1.05); }
-
-        #contador-contenedor { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
-        .caja-contador { background-color: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.1); padding: 15px; border-radius: 8px; min-width: 90px; }
-        .caja-contador span { font-size: 2.5rem; font-weight: bold; color: var(--color-texto-principal); }
-        .caja-contador .etiqueta { font-size: 0.8rem; text-transform: uppercase; color: var(--color-texto-principal); }
-        .boton-calendario {
-            display: inline-block; background-color: transparent; border: 1px solid var(--color-texto-principal);
-            color: var(--color-texto-principal); padding: 10px 20px; border-radius: 5px; text-decoration: none;
-            font-size: 1rem; transition: all 0.3s ease;
-        }
-        .boton-calendario:hover { background-color: var(--color-texto-principal); color: var(--color-fondo); }
-
-        .cita-religiosa { font-style: italic; font-family: var(--fuente-elegante); font-size: 1.5rem; max-width: 700px; margin: 0 auto 30px auto; }
-        .texto-invitacion { font-size: 1.1rem; margin: 20px 0; line-height: 1.7; }
-        .nombres-anfitriones { font-family: var(--fuente-elegante); font-size: 3rem; font-weight: 700; margin: 15px 0; }
-        .nombres-padres-novio { font-family: var(--fuente-elegante); font-size: 2rem; font-weight: 400; margin: 15px 0; }
-        .nombres-boda { font-family: var(--fuente-elegante); font-style: italic; font-size: 5rem; margin: 25px 0 10px 0; line-height: 1; }
-
-        .lista-itinerario { width: 100%; }
-        .item-itinerario { display: flex; justify-content: space-between; align-items: center; padding: 25px 10px; border-bottom: 1px solid rgba(0,0,0,0.1); }
-        .item-itinerario:last-child { border-bottom: none; }
-        .icono-evento { font-size: 2rem; color: var(--color-acento); margin-right: 20px; }
-        .detalle-evento { text-align: left; flex-grow: 1; }
-        .detalle-evento h3 { margin: 0; font-size: 1.8rem; }
-        .detalle-evento p { margin: 0; font-size: 1.1rem; }
-        .boton-mapa-claro {
-            display: inline-block; padding: 10px 20px; border: 2px solid var(--color-acento);
-            color: var(--color-acento); text-decoration: none; border-radius: 5px;
-            margin-left: 20px; transition: background-color 0.3s ease, color 0.3s ease; white-space: nowrap;
-        }
-        .boton-mapa-claro:hover { background-color: var(--color-acento); color: var(--color-fondo); }
-
-        .vestimenta-texto { font-size: 3rem; font-family: var(--fuente-titulos); margin-bottom: 5px; }
-        .subtexto-vestimenta { font-size: 1rem; font-style: italic; margin-top: 0; }
-
-        #rsvp-form { max-width: 500px; margin: 20px auto 0 auto; }
-        #rsvp-form input, #rsvp-form select, #rsvp-form button {
-            width: 100%; padding: 15px; margin-top: 10px; border-radius: 5px; border: 1px solid rgba(0,0,0,0.2);
-            font-size: 1rem; box-sizing: border-box; font-family: var(--fuente-texto);
-        }
-        #rsvp-form button { border: none; background-color: var(--color-acento); color: white; cursor: pointer; transition: background-color 0.3s ease; }
-        #rsvp-form button:hover { background-color: var(--color-acento-oscuro); }
-
-        .fade-in-on-scroll { opacity: 0; transition: opacity 1.2s ease-in-out; }
-        .fade-in-on-scroll.is-visible { opacity: 1; }
-
-        @media (max-width: 768px) {
-            .portada-contenido h1 { font-size: 2.8rem; }
-            .portada-contenido p { font-size: 1.2rem; }
-            .seccion-contenido-solido { padding: 60px 20px; }
-            #galeria { padding: 60px 20px; }
-            .nombres-boda { font-size: 3.5rem; }
-            h2 { font-size: 2.2rem; }
-            .item-itinerario { flex-wrap: wrap; row-gap: 15px; }
-            .detalle-evento { flex-basis: 100%; }
-            .boton-mapa-claro { flex-basis: 100%; margin-left: 0; }
-        }
+        :root{--color-fondo:#f4f1eb;--color-texto-principal:#3a3a3a;--color-texto-secundario:#ffffff;--color-acento:#8a7967;--color-acento-oscuro:#6d5f50;--fuente-titulos:'Playfair Display',serif;--fuente-texto:'Montserrat',sans-serif;--fuente-elegante:'Cormorant Garamond',serif}html{scroll-behavior:smooth}body{margin:0;font-family:var(--fuente-texto);color:var(--color-texto-principal);background-color:var(--color-fondo);overflow-x:hidden}h1,h2,h3{font-family:var(--fuente-titulos);font-weight:700;margin:10px 0}p{line-height:1.6;font-size:1rem}#portada{background-image:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(principal.jpg);background-size:cover;background-position:center;height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;color:var(--color-texto-secundario);position:fixed;top:0;left:0;width:100%;z-index:100;transition:opacity 1s ease-out}#portada.oculta{opacity:0;pointer-events:none}.portada-contenido h1{font-size:4.5rem;margin-bottom:0}.portada-contenido p{font-size:1.5rem}.boton-invitacion{display:inline-block;padding:15px 30px;background-color:var(--color-acento);color:var(--color-texto-secundario);text-decoration:none;border-radius:5px;font-size:1.2rem;transition:background-color .3s ease;cursor:pointer}.boton-invitacion:hover{background-color:var(--color-acento-oscuro)}.seccion-wrapper{position:relative;display:grid;grid-template-columns:1fr;grid-template-rows:1fr}.seccion-imagen-sticky{grid-column:1/-1;grid-row:1/-1;position:sticky;top:0;height:100vh;background-size:cover;background-position:center}.seccion-contenido-solido{grid-column:1/-1;grid-row:1/-1;position:relative;background-color:var(--color-fondo);padding:120px 40px;text-align:center;margin-top:100vh;z-index:2}.contenido-interno{max-width:800px;margin:0 auto}#save-the-date .seccion-imagen-sticky{background-image:url(fotoportada.jpg)}#aniversario .seccion-imagen-sticky{background-image:url(foto-aniversario.jpg)}#enlace .seccion-imagen-sticky{background-image:url(fotopadres.jpg)}#padrinos .seccion-imagen-sticky{background-image:url(padrinos.jpg)}#itinerario .seccion-imagen-sticky{background-image:url(inti.jpg)}#vestimenta .seccion-imagen-sticky{background-image:url(codigo.jpg)}#confirmacion .seccion-imagen-sticky{background-image:url(nosacompas.jpg)}#galeria{padding:80px 40px;background-image:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url(galeria.jpg);background-attachment:fixed;background-size:cover;color:var(--color-texto-secundario);position:relative;z-index:3}.galeria-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;width:100%;max-width:1200px;margin:0 auto}.galeria-grid img{width:100%;height:100%;object-fit:cover;border-radius:8px;transition:transform .3s ease}.galeria-grid img:hover{transform:scale(1.05)}#contador-contenedor{display:flex;justify-content:center;gap:15px;margin-bottom:20px;flex-wrap:wrap}.caja-contador{background-color:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.1);padding:15px;border-radius:8px;min-width:90px}.caja-contador span{font-size:2.5rem;font-weight:700;color:var(--color-texto-principal)}.caja-contador .etiqueta{font-size:.8rem;text-transform:uppercase;color:var(--color-texto-principal)}.boton-calendario{display:inline-block;background-color:transparent;border:1px solid var(--color-texto-principal);color:var(--color-texto-principal);padding:10px 20px;border-radius:5px;text-decoration:none;font-size:1rem;transition:all .3s ease}.boton-calendario:hover{background-color:var(--color-texto-principal);color:var(--color-fondo)}.cita-religiosa{font-style:italic;font-family:var(--fuente-elegante);font-size:1.5rem;max-width:700px;margin:0 auto 30px}.texto-invitacion{font-size:1.1rem;margin:20px 0;line-height:1.7}.nombres-anfitriones{font-family:var(--fuente-elegante);font-size:3rem;font-weight:700;margin:15px 0}.nombres-padres-novio{font-family:var(--fuente-elegante);font-size:2rem;font-weight:400;margin:15px 0}.nombres-boda{font-family:var(--fuente-elegante);font-style:italic;font-size:5rem;margin:25px 0 10px;line-height:1}.lista-itinerario{width:100%}.item-itinerario{display:flex;justify-content:space-between;align-items:center;padding:25px 10px;border-bottom:1px solid rgba(0,0,0,.1)}.item-itinerario:last-child{border-bottom:none}.icono-evento{font-size:2rem;color:var(--color-acento);margin-right:20px}.detalle-evento{text-align:left;flex-grow:1}.detalle-evento h3{margin:0;font-size:1.8rem}.detalle-evento p{margin:0;font-size:1.1rem}.boton-mapa-claro{display:inline-block;padding:10px 20px;border:2px solid var(--color-acento);color:var(--color-acento);text-decoration:none;border-radius:5px;margin-left:20px;transition:background-color .3s ease,color .3s ease;white-space:nowrap}.boton-mapa-claro:hover{background-color:var(--color-acento);color:var(--color-fondo)}.vestimenta-texto{font-size:3rem;font-family:var(--fuente-titulos);margin-bottom:5px}.subtexto-vestimenta{font-size:1rem;font-style:italic;margin-top:0}#rsvp-form{max-width:500px;margin:20px auto 0}#rsvp-form button,#rsvp-form input,#rsvp-form select{width:100%;padding:15px;margin-top:10px;border-radius:5px;border:1px solid rgba(0,0,0,.2);font-size:1rem;box-sizing:border-box;font-family:var(--fuente-texto)}#rsvp-form button{border:none;background-color:var(--color-acento);color:#fff;cursor:pointer;transition:background-color .3s ease}#rsvp-form button:hover{background-color:var(--color-acento-oscuro)}.fade-in-on-scroll{opacity:0;transition:opacity 1.2s ease-in-out}.fade-in-on-scroll.is-visible{opacity:1}@media (max-width:768px){.portada-contenido h1{font-size:2.8rem}.portada-contenido p{font-size:1.2rem}.seccion-contenido-solido{padding:60px 20px}#galeria{padding:60px 20px}.nombres-boda{font-size:3.5rem}h2{font-size:2.2rem}.item-itinerario{flex-wrap:wrap;row-gap:15px}.detalle-evento{flex-basis:100%}.boton-mapa-claro{flex-basis:100%;margin-left:0}}
     </style>
 </head>
 <body>
@@ -165,19 +48,27 @@
             </div>
         </article>
 
-       <article class="seccion-wrapper" id="padres">
-           <div class="seccion-imagen-sticky" style="background-image: url('fotopadres.jpg');"></div>
-           <div class="seccion-contenido-solido">
-               <div class="contenido-interno fade-in-on-scroll">
+        <article class="seccion-wrapper" id="aniversario">
+            <div class="seccion-imagen-sticky" style="background-image: url('aniversario.jpg');"></div>
+            <div class="seccion-contenido-solido">
+                <div class="contenido-interno fade-in-on-scroll">
                     <p class="cita-religiosa">"Bendito tú eres, señor, porque en los buenos y malos momentos de nuestro matrimonio has estado a nuestro lado."</p>
                     <p class="texto-invitacion">Al celebrar la renovación de nuestros votos por 38 años de matrimonio,</p>
                     <h2 class="nombres-anfitriones">Socorro del Campo Irizar & Tomas Diaz Mariscal</h2>
+                </div>
+            </div>
+        </article>
+        
+        <article class="seccion-wrapper" id="enlace">
+            <div class="seccion-imagen-sticky" style="background-image: url('fotopadres.jpg');"></div>
+            <div class="seccion-contenido-solido">
+                <div class="contenido-interno fade-in-on-scroll">
                     <p class="texto-invitacion">nos complace invitarles a ser testigos de nuestra alegría. Con la misma emoción, y en unión con los padres del novio,</p>
                     <h3 class="nombres-padres-novio">Jesús Salazar & María Elena Rivas</h3>
                     <p class="texto-invitacion">tenemos el honor de invitarles al enlace matrimonial de nuestros hijos,</p>
                     <h1 class="nombres-boda">Libia & Ernesto</h1>
                 </div>
-           </div>
+            </div>
         </article>
 
         <article class="seccion-wrapper" id="padrinos">
@@ -277,21 +168,16 @@
             ubicacionCeremonia: "Cuasiparroquia Maria Reina de la Paz, Puerto Vallarta",
             urlGoogleSheet: "https://script.google.com/macros/s/AKfycbweVP4ecdpWdK4oVzV27zX849KDSV3HFS1FjMOSiCM0pyWgkBwbwQd5QsWXLnQqTry_/exec"
         };
-
         // --- SCRIPTS DE FUNCIONALIDAD ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Ocultar Portada
             const verInvitacionBtn = document.getElementById('verInvitacionBtn');
             if(verInvitacionBtn) {
                 verInvitacionBtn.addEventListener('click', function() {
-                // --- LÍNEA NUEVA: Inicia la música ---
                     document.getElementById('musica-fondo').play();
                     document.getElementById('portada').classList.add('oculta');
                     setTimeout(() => { document.getElementById('portada').style.display = 'none'; }, 1000);
                 });
             }
-
-            // Animaciones al hacer scroll
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -301,8 +187,6 @@
             }, { threshold: 0.2 });
             document.querySelectorAll('.fade-in-on-scroll').forEach(section => { observer.observe(section); });
         });
-
-        // --- SCRIPT DEL CONTADOR ---
         const fechaEvento = config.fechaBoda.getTime();
         const intervalo = setInterval(function() {
             const ahora = new Date().getTime();
@@ -322,31 +206,20 @@
             if(minutosEl) minutosEl.innerText = String(minutos).padStart(2, '0');
             if(segundosEl) segundosEl.innerText = String(segundos).padStart(2, '0');
         }, 1000);
-
-       // --- SCRIPT PARA "AGREGAR A CALENDARIO" (VERSIÓN CORREGIDA) ---
         function generarLinkCalendario() {
             const fechaInicio = config.fechaBoda;
-            // El evento durará 6 horas desde el inicio de la ceremonia
             const fechaFin = new Date(fechaInicio.getTime() + (6 * 60 * 60 * 1000));
-            
-            // Función para dar el formato de fecha que Google Calendar entiende (YYYYMMDDTHHMMSSZ)
-            const formatoFechaUTC = (fecha) => {
-                return fecha.toISOString().replace(/-|:|\.\d+/g, '');
-            };
-
+            const formatoFechaUTC = (fecha) => { return fecha.toISOString().replace(/-|:|\.\d+/g, ''); };
             const url = new URL('https://www.google.com/calendar/render');
             url.searchParams.append('action', 'TEMPLATE');
             url.searchParams.append('text', config.tituloCalendario);
             url.searchParams.append('dates', `${formatoFechaUTC(fechaInicio)}/${formatoFechaUTC(fechaFin)}`);
             url.searchParams.append('location', config.ubicacionCeremonia);
             url.searchParams.append('details', `Acompáñanos a celebrar la boda de ${config.tituloCalendario}. Detalles en: https://libiayernesto.netlify.app/`);
-            
             const boton = document.getElementById('botonCalendario');
             if(boton) boton.href = url.toString();
         }
         generarLinkCalendario();
-
-        // --- SCRIPT DEL FORMULARIO DE GOOGLE SHEETS ---
         const form = document.getElementById('rsvp-form');
         if(form) {
             form.addEventListener('submit', function(e) {
