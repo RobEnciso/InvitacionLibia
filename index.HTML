@@ -25,6 +25,50 @@
         .nota-adultos { margin-top: 25px; font-weight: bold; }
         .texto-adicional { font-size: 1rem; font-style: italic; opacity: 0.9; max-width: 600px; margin: 0 auto 30px auto; }
         @media (max-width:768px){.portada-contenido h1{font-size:2.8rem}.portada-contenido p{font-size:1.2rem}.seccion-contenido-solido{padding:60px 20px}#galeria{padding:60px 20px}.nombres-boda{font-size:3.5rem}h2{font-size:2.2rem}.item-itinerario{flex-wrap:wrap;row-gap:15px}.detalle-evento{flex-basis:100%}.boton-mapa-claro{flex-basis:100%;margin-left:0}}
+        /* ===== CÓDIGO PARA JUNTAR LOS NOMBRES DE LOS PADRES ===== */
+#padrinos .contenido-interno p {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  line-height: 1.4; /* Mejora la legibilidad del texto */
+}
+    /* ===== CÓDIGO FINAL PARA CENTRAR EL ITINERARIO ===== */
+.item-itinerario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1) !important; /* Añadimos !important para asegurar que se aplique */
+    justify-content: initial; /* Reseteamos por si había otra regla */
+    flex-wrap: initial;       /* Reseteamos por si había otra regla */
+}
+
+.item-itinerario:last-child {
+    border-bottom: none !important; /* Quitamos la línea del último elemento */
+}
+
+.detalle-evento {
+    text-align: center !important;
+    flex-grow: 0 !important;
+    margin: 0;
+}
+
+.boton-mapa-claro {
+    margin: 0 !important; /* Reseteamos todos los márgenes */
+}
+/* ===== CÓDIGO PARA CENTRAR LA INFO ADICIONAL (REGALO Y ADULTOS) ===== */
+.info-regalo {
+    flex-direction: column; /* Apila el icono y el texto verticalmente */
+}
+
+.info-regalo p {
+    text-align: center; /* Centra el texto del párrafo del regalo */
+    max-width: 450px;   /* Opcional: Evita que el texto se haga muy ancho en pantallas grandes */
+}
+
+.nota-adultos {
+    text-align: center; /* Asegura que el texto de "solo adultos" esté centrado */
+}
     </style>
 </head>
 <body>
@@ -88,8 +132,13 @@
             <div class="seccion-contenido-solido">
                 <div class="contenido-interno fade-in-on-scroll">
                     <h2>Nuestros Padres</h2>
-                    <p>Socorro del Campo Irizar & Tomas Diaz</p>
-                    <p>Maria Jesus Ruiz Montes & Saul Demetrio Sanchez Sanchez</p>
+                    <p>Socorro del Campo Irizar</p>
+<p>Tomás Díaz Mariscal</p>
+<p style="font-weight: bold; margin-top: 5px;">(Libia)</p>
+
+<p style="margin-top: 25px;">María Jesús Ruiz Montes</p>
+<p>Saúl Demetrio Sánchez Sánchez</p>
+<p style="font-weight: bold; margin-top: 5px;">(Ernesto)</p>
                     <h2 style="margin-top: 40px;">Nuestros Padrinos</h2>
                     <p>Quienes serán testigos de nuestro amor y nos guiarán en nuestro camino.</p>
                     <p><strong>Velación:</strong><br>Lorena Beatriz Irizar Zamudio<br>Aaron Schaffnitt Fierros</p>
@@ -97,6 +146,7 @@
                     <p><strong>Arras:</strong><br>Jose Alfredo Del Campo<br>Martha Fabiola Morales Torres</p>
                     <p><strong>Lazo:</strong><br>Diana Alejandra Diaz del Campo<br>Ulises Alejandro Sandoval Esparza</p>
                     <p><strong>Biblia y Rosario:</strong><br>Gerardo Ramirez Martinez<br>Alexandra Carballo Coronado</p>
+                    <p><strong>Ramo:</strong><br>Patsy Ortega Mariscal</p>
                 </div>
             </div>
         </article>
@@ -166,7 +216,7 @@
             <div class="seccion-contenido-solido">
                 <div class="contenido-interno fade-in-on-scroll">
                     <h2>Confirmar Asistencia</h2>
-                    <p class="texto-adicional">Agradeceremos tu confirmación lo más pronto posible. Esto nos ayudará a tener una mejor organización para poder disfrutar juntos de este gran evento.</p>
+                    <p class="texto-adicional">Para Reservaciones de Hotel con Diana Alejandra 322 135 6275</p>
                     <form id="rsvp-form">
     <input type="text" id="nombre-invitado" name="nombre" placeholder="Escribe tu nombre completo" required>
     
@@ -192,7 +242,7 @@
 
     <button type="submit">Enviar Confirmación</button>
 </form>
-<p id="mensaje-gracias" style="display:none; margin-top: 15px;">¡Gracias por tu confirmación!</p>
+<p id="mensaje-gracias" style="display:none; margin-top: 15px;">¡Gracias por tu confirmación! Tu respuesta es muy importante para nosotros y nos ayuda a preparar cada detalle para que podamos celebrar juntos este día tan especial.</p>
                 </div>
             </div>
         </article>
