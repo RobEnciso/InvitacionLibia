@@ -168,15 +168,31 @@
                     <h2>Confirmar Asistencia</h2>
                     <p class="texto-adicional">Agradeceremos tu confirmación lo más pronto posible. Esto nos ayudará a tener una mejor organización para poder disfrutar juntos de este gran evento.</p>
                     <form id="rsvp-form">
-                        <input type="text" name="nombre" placeholder="Escribe tu nombre completo" required>
-                        <select name="asistencia" required>
-                            <option value="" disabled selected>¿Nos acompañarás?</option>
-                            <option value="Sí, asistiré">¡Sí, allí estaré!</option>
-                            <option value="No podré asistir">No podré asistir</option>
-                        </select>
-                        <button type="submit">Enviar Confirmación</button>
-                    </form>
-                    <p id="mensaje-gracias" style="display:none; margin-top: 15px;">¡Gracias por tu confirmación!</p>
+    <input type="text" id="nombre-invitado" name="nombre" placeholder="Escribe tu nombre completo" required>
+    
+    <select id="asistencia-select" name="asistencia" required>
+        <option value="" disabled selected>¿Nos acompañarás?</option>
+        <option value="Sí, asistiré">¡Sí, allí estaré!</option>
+        <option value="No podré asistir">No podré asistir</option>
+    </select>
+
+    <div id="acompanante-seccion" style="display: none;">
+        
+        <select id="viene-acompanante-select" name="acompanante">
+            <option value="" disabled selected>¿Asistirás con un acompañante?</option>
+            <option value="Sí">Sí, asistiré con alguien</option>
+            <option value="No">No, asistiré solo(a)</option>
+        </select>
+
+        <div id="nombre-acompanante-wrapper" style="display: none;">
+            <input type="text" id="nombre-acompanante-input" name="nombre_acompanante" placeholder="Nombre completo del acompañante">
+        </div>
+
+    </div>
+
+    <button type="submit">Enviar Confirmación</button>
+</form>
+<p id="mensaje-gracias" style="display:none; margin-top: 15px;">¡Gracias por tu confirmación!</p>
                 </div>
             </div>
         </article>
@@ -184,82 +200,174 @@
     <audio id="musica-fondo" src="cancion.mp3" loop></audio>
 
     <script>
-        // --- CONFIGURACIÓN PRINCIPAL ---
-        const config = {
-            fechaBoda: new Date(2026, 0, 30, 17, 0, 0),
-            tituloCalendario: "Boda Libia & Ernesto",
-            ubicacionCeremonia: "Cuasiparroquia Maria Reina de la Paz, Puerto Vallarta",
-            urlGoogleSheet: "https://script.google.com/macros/s/AKfycbweVP4ecdpWdK4oVzV27zX849KDSV3HFS1FjMOSiCM0pyWgkBwbwQd5QsWXLnQqTry_/exec"
-        };
-        // --- SCRIPTS DE FUNCIONALIDAD ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const verInvitacionBtn = document.getElementById('verInvitacionBtn');
-            if(verInvitacionBtn) {
-                verInvitacionBtn.addEventListener('click', function() {
-                    document.getElementById('musica-fondo').play();
-                    document.getElementById('portada').classList.add('oculta');
-                    setTimeout(() => { document.getElementById('portada').style.display = 'none'; }, 1000);
-                });
-            }
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.2 });
-            document.querySelectorAll('.fade-in-on-scroll').forEach(section => { observer.observe(section); });
+document.addEventListener('DOMContentLoaded', () => {
+    // --- CONFIGURACIÓN PRINCIPAL ---
+    const config = {
+        fechaBoda: new Date(2026, 0, 30, 17, 0, 0),
+        tituloCalendario: "Boda Libia & Ernesto",
+        ubicacionCeremonia: "Cuasiparroquia Maria Reina de la Paz, Puerto Vallarta",
+        urlGoogleSheet: "https://script.google.com/macros/s/AKfycbzkqjkqnI0MBZTXPoalzm7tpxkIMcCRgCRpPGwkXmX-0xIubKX9B-91JRIwQsZjmkm0/exec"
+    };
+
+    // --- ELEMENTOS DEL DOM (Aquí definimos todos los botones, formularios, etc.) ---
+    const verInvitacionBtn = document.getElementById('verInvitacionBtn');
+    const portada = document.getElementById('portada');
+    const audio = document.getElementById('musica-fondo');
+    const musicToggleBtn = document.getElementById('music-toggle');
+    const rsvpForm = document.getElementById('rsvp-form');
+    const asistenciaSelect = document.getElementById('asistencia-select');
+    const acompananteSeccion = document.getElementById('acompanante-seccion');
+    const vieneAcompananteSelect = document.getElementById('viene-acompanante-select');
+    const nombreAcompananteWrapper = document.getElementById('nombre-acompanante-wrapper');
+    const nombreAcompananteInput = document.getElementById('nombre-acompanante-input');
+
+    // --- LÓGICA DE LA PORTADA Y MÚSICA ---
+    if (verInvitacionBtn) {
+        verInvitacionBtn.addEventListener('click', () => {
+            audio.play().catch(error => console.log("La reproducción fue bloqueada."));
+            portada.classList.add('oculta');
+            if (musicToggleBtn) musicToggleBtn.classList.add('visible');
+            setTimeout(() => {
+                portada.style.display = 'none';
+            }, 1000);
         });
-        const fechaEvento = config.fechaBoda.getTime();
-        const intervalo = setInterval(function() {
-            const ahora = new Date().getTime();
-            const distancia = fechaEvento - ahora;
-            const diasEl = document.getElementById('dias'), horasEl = document.getElementById('horas'), minutosEl = document.getElementById('minutos'), segundosEl = document.getElementById('segundos');
-            if (distancia < 0) {
-                clearInterval(intervalo);
-                if(document.getElementById('contador-contenedor')) { document.getElementById('contador-contenedor').innerHTML = "<h2>¡El gran día ha llegado!</h2>"; }
+    }
+
+    if (musicToggleBtn && audio) {
+        musicToggleBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        });
+        audio.onplay = () => musicToggleBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+        audio.onpause = () => musicToggleBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    }
+
+    // --- LÓGICA PARA ANIMACIONES AL HACER SCROLL ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.fade-in-on-scroll').forEach(section => {
+        observer.observe(section);
+    });
+
+    // --- LÓGICA DEL CONTADOR REGRESIVO ---
+    const fechaEvento = config.fechaBoda.getTime();
+    const intervalo = setInterval(function() {
+        const ahora = new Date().getTime();
+        const distancia = fechaEvento - ahora;
+        const diasEl = document.getElementById('dias'),
+              horasEl = document.getElementById('horas'),
+              minutosEl = document.getElementById('minutos'),
+              segundosEl = document.getElementById('segundos');
+
+        if (distancia < 0) {
+            clearInterval(intervalo);
+            const contadorContenedor = document.getElementById('contador-contenedor');
+            if (contadorContenedor) {
+                contadorContenedor.innerHTML = "<h2>¡El gran día ha llegado!</h2>";
+            }
+            return;
+        }
+
+        const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+        if (diasEl) diasEl.innerText = String(dias).padStart(2, '0');
+        if (horasEl) horasEl.innerText = String(horas).padStart(2, '0');
+        if (minutosEl) minutosEl.innerText = String(minutos).padStart(2, '0');
+        if (segundosEl) segundosEl.innerText = String(segundos).padStart(2, '0');
+    }, 1000);
+
+    // --- LÓGICA DEL BOTÓN "AGREGAR A CALENDARIO" ---
+    function generarLinkCalendario() {
+        const fechaInicio = config.fechaBoda;
+        const fechaFin = new Date(fechaInicio.getTime() + (6 * 60 * 60 * 1000));
+        const formatoFechaUTC = (fecha) => fecha.toISOString().replace(/-|:|\.\d+/g, '');
+
+        const url = new URL('https://www.google.com/calendar/render');
+        url.searchParams.append('action', 'TEMPLATE');
+        url.searchParams.append('text', config.tituloCalendario);
+        url.searchParams.append('dates', `${formatoFechaUTC(fechaInicio)}/${formatoFechaUTC(fechaFin)}`);
+        url.searchParams.append('location', config.ubicacionCeremonia);
+        url.searchParams.append('details', `Acompáñanos a celebrar la boda de ${config.tituloCalendario}. Detalles en: ${window.location.href}`);
+
+        const boton = document.getElementById('botonCalendario');
+        if (boton) boton.href = url.toString();
+    }
+    generarLinkCalendario();
+
+    // --- LÓGICA DEL FORMULARIO DE ACOMPAÑANTE (¡LA PARTE NUEVA!) ---
+    if (asistenciaSelect) {
+        asistenciaSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'Sí, asistiré') {
+                acompananteSeccion.style.display = 'block';
+            } else {
+                acompananteSeccion.style.display = 'none';
+                nombreAcompananteWrapper.style.display = 'none';
+                nombreAcompananteInput.required = false;
+                nombreAcompananteInput.value = '';
+            }
+        });
+    }
+
+    if (vieneAcompananteSelect) {
+        vieneAcompananteSelect.addEventListener('change', (e) => {
+            if (e.target.value === 'Sí') {
+                nombreAcompananteWrapper.style.display = 'block';
+                nombreAcompananteInput.required = true;
+            } else {
+                nombreAcompananteWrapper.style.display = 'none';
+                nombreAcompananteInput.required = false;
+                nombreAcompananteInput.value = '';
+            }
+        });
+    }
+
+    // --- LÓGICA DEL ENVÍO DEL FORMULARIO DE CONFIRMACIÓN (RSVP) ---
+    if (rsvpForm) {
+        rsvpForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+
+            const data = new FormData(this);
+            const action = config.urlGoogleSheet;
+
+            if (!action || action === "URL_DE_TU_APP_WEB_AQUÍ") {
+                alert("La URL para confirmar la asistencia no está configurada.");
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
                 return;
             }
-            const dias = Math.floor(distancia / 86400000);
-            const horas = Math.floor((distancia % 86400000) / 3600000);
-            const minutos = Math.floor((distancia % 3600000) / 60000);
-            const segundos = Math.floor((distancia % 60000) / 1000);
-            if(diasEl) diasEl.innerText = String(dias).padStart(2, '0');
-            if(horasEl) horasEl.innerText = String(horas).padStart(2, '0');
-            if(minutosEl) minutosEl.innerText = String(minutos).padStart(2, '0');
-            if(segundosEl) segundosEl.innerText = String(segundos).padStart(2, '0');
-        }, 1000);
-        function generarLinkCalendario() {
-            const fechaInicio = config.fechaBoda;
-            const fechaFin = new Date(fechaInicio.getTime() + (6 * 60 * 60 * 1000));
-            const formatoFechaUTC = (fecha) => { return fecha.toISOString().replace(/-|:|\.\d+/g, ''); };
-            const url = new URL('https://www.google.com/calendar/render');
-            url.searchParams.append('action', 'TEMPLATE');
-            url.searchParams.append('text', config.tituloCalendario);
-            url.searchParams.append('dates', `${formatoFechaUTC(fechaInicio)}/${formatoFechaUTC(fechaFin)}`);
-            url.searchParams.append('location', config.ubicacionCeremonia);
-            url.searchParams.append('details', `Acompáñanos a celebrar la boda de ${config.tituloCalendario}. Detalles en: https://libiayernesto.netlify.app/`);
-            const boton = document.getElementById('botonCalendario');
-            if(boton) boton.href = url.toString();
-        }
-        generarLinkCalendario();
-        const form = document.getElementById('rsvp-form');
-        if(form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const data = new FormData(form);
-                const action = config.urlGoogleSheet;
-                if (action === "URL_DE_TU_APP_WEB_AQUÍ") {
-                    alert("La URL para confirmar la asistencia no está configurada.");
-                    return;
-                }
-                fetch(action, { method: 'POST', body: data, })
-                .then(() => {
+
+            try {
+                const response = await fetch(action, { method: 'POST', body: data });
+                if (response.ok) {
                     document.getElementById('mensaje-gracias').style.display = 'block';
-                    form.style.display = 'none';
-                });
-            });
-        }
-    </script>
-</body>
+                    this.style.display = 'none';
+                } else {
+                    throw new Error('Error al enviar la confirmación.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Hubo un problema al enviar tu confirmación. Por favor, inténtalo de nuevo.');
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        });
+    }
+});
+</script>
 </html>
