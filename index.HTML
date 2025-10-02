@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Boda - Libia & Ernesto</title>
+    <title>Nuestra Boda - Ernesto & Libia</title>
     
-    <meta property="og:title" content="Nuestra Boda - Libia & Ernesto">
+    <meta property="og:title" content="Nuestra Boda - Ernesto & Libia">
     <meta property="og:description" content="Tenemos el honor de invitarte a celebrar nuestro amor. ¡Acompáñanos en este día tan especial!">
     <meta property="og:image" content="https://libiayernesto.netlify.app/miniatura.jpg">
     <meta property="og:url" content="https://libiayernesto.netlify.app/">
@@ -25,6 +25,14 @@
         .nota-adultos { margin-top: 25px; font-weight: bold; }
         .texto-adicional { font-size: 1rem; font-style: italic; opacity: 0.9; max-width: 600px; margin: 0 auto 30px auto; }
         @media (max-width:768px){.portada-contenido h1{font-size:2.8rem}.portada-contenido p{font-size:1.2rem}.seccion-contenido-solido{padding:60px 20px}#galeria{padding:60px 20px}.nombres-boda{font-size:3.5rem}h2{font-size:2.2rem}.item-itinerario{flex-wrap:wrap;row-gap:15px}.detalle-evento{flex-basis:100%}.boton-mapa-claro{flex-basis:100%;margin-left:0}}
+        .icono-regalo-custom {
+    width: 60px; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    
+}
+.info-regalo {
+    gap: 10px; /* Ajusta el espacio entre el icono y el texto si es necesario */
+}
         /* ===== CÓDIGO PARA JUNTAR LOS NOMBRES DE LOS PADRES ===== */
 #padrinos .contenido-interno p {
   margin-top: 4px;
@@ -69,12 +77,79 @@
 .nota-adultos {
     text-align: center; /* Asegura que el texto de "solo adultos" esté centrado */
 }
+.colores-reservados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espacio entre los círculos */
+    margin-top: 10px;
+}
+
+.circulo {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #ddd; /* Borde sutil para el círculo blanco */
+}
+
+.circulo.blanco {
+    background-color: #ffffff;
+}
+
+.circulo.rojo {
+    background-color: #8f4343;
+}
+
+.circulo.verde {
+    background-color: #3a613a;
+}
+.info-reservaciones {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.texto-reservaciones {
+    font-style: italic;
+    opacity: 0.9;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.logo-agencia {
+    max-width: 250px; /* Esto asegura que el logo no se vea demasiado grande en pantallas amplias */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.boton-whatsapp {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #25D366; /* Color de fondo de WhatsApp */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.boton-whatsapp:hover {
+    background-color: #128C7E;
+}
+
+.boton-whatsapp i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
     </style>
 </head>
 <body>
     <div id="portada">
         <div class="portada-contenido">
-            <h1>Libia & Ernesto</h1>
+            <h1>Ernesto & Libia</h1>
             <p>30 de Enero, 2026</p>
             <a id="verInvitacionBtn" class="boton-invitacion">Ver Invitación</a>
         </div>
@@ -122,7 +197,7 @@
                 <div class="contenido-interno fade-in-on-scroll">
                     <p class="texto-invitacion">Nos complace invitarlos a ser testigos de nuestra alegría y</p>
                     <p class="texto-invitacion">tenemos el honor de invitarlos al enlace matrimonial de:</p>
-                    <h1 class="nombres-boda">Libia & Ernesto</h1>
+                    <h1 class="nombres-boda">Ernesto & Libia</h1>
                 </div>
             </div>
         </article>
@@ -132,19 +207,20 @@
             <div class="seccion-contenido-solido">
                 <div class="contenido-interno fade-in-on-scroll">
                     <h2>Nuestros Padres</h2>
+                    <p>Tomás Díaz Mariscal</p>
                     <p>Socorro del Campo Irizar</p>
-<p>Tomás Díaz Mariscal</p>
 <p style="font-weight: bold; margin-top: 5px;">(Libia)</p>
 
-<p style="margin-top: 25px;">María Jesús Ruiz Montes</p>
+<p style="margin-top: 25px;">
 <p>Saúl Demetrio Sánchez Sánchez</p>
+María Jesús Ruiz Montes</p>
 <p style="font-weight: bold; margin-top: 5px;">(Ernesto)</p>
                     <h2 style="margin-top: 40px;">Nuestros Padrinos</h2>
                     <p>Quienes serán testigos de nuestro amor y nos guiarán en nuestro camino.</p>
-                    <p><strong>Velación:</strong><br>Lorena Beatriz Irizar Zamudio<br>Aaron Schaffnitt Fierros</p>
-                    <p><strong>Anillos:</strong><br>Hortencia del Campo Irizar<br>Victor Hugo Ochoa Benitez</p>
-                    <p><strong>Arras:</strong><br>Jose Alfredo Del Campo<br>Martha Fabiola Morales Torres</p>
-                    <p><strong>Lazo:</strong><br>Diana Alejandra Diaz del Campo<br>Ulises Alejandro Sandoval Esparza</p>
+                    <p><strong>Velación:</strong><br>Aaron Schaffnitt Fierros<br>Lorena Beatriz Irizar Zamudio</p>
+                    <p><strong>Anillos:</strong><br>Victor Hugo Ochoa Benitez<br>Hortencia del Campo Irizar</p>
+                    <p><strong>Arras:</strong><br>Martha Fabiola Morales Torres<br>Jose Alfredo Del Campo</p>
+                    <p><strong>Lazo:</strong><br>Ulises Alejandro Sandoval Esparza<br>Diana Alejandra Diaz del Campo</p>
                     <p><strong>Biblia y Rosario:</strong><br>Gerardo Ramirez Martinez<br>Alexandra Carballo Coronado</p>
                     <p><strong>Ramo:</strong><br>Patsy Ortega Mariscal</p>
                 </div>
@@ -177,8 +253,9 @@
                         </div>
                     </div>
                     <div class="info-adicional">
-                        <div class="info-regalo">
-                            <div class="icono"><i class="fas fa-gift"></i></div>
+                        <div class="icono">
+    <img src="sobredinero.png" alt="Sobre con dinero" class="icono-regalo-custom">
+</div>
                             <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con nosotros, nuestra sugerencia es "lluvia de sobres".</p>
                         </div>
                         <p class="nota-adultos">Evento exclusivo para adultos.<br>(No Niños)</p>
@@ -206,7 +283,13 @@
                  <div class="contenido-interno fade-in-on-scroll">
                     <h2>Código de Vestimenta</h2>
                     <p class="vestimenta-texto">Formal</p>
-                    <p class="subtexto-vestimenta">(No colores Blanco, Rojo, Verdes)</p>
+                    <p class="subtexto-vestimenta">Nos reservamos el uso de los colores</p>
+                    <p class="subtexto-vestimenta">Blancos , Rojos , Verdes</p>
+<div class="colores-reservados">
+    <span class="circulo blanco"></span>
+    <span class="circulo rojo"></span>
+    <span class="circulo verde"></span>
+</div>
                  </div>
              </div>
         </article>
@@ -216,7 +299,7 @@
             <div class="seccion-contenido-solido">
                 <div class="contenido-interno fade-in-on-scroll">
                     <h2>Confirmar Asistencia</h2>
-                    <p class="texto-adicional">Para Reservaciones de Hotel con Diana Alejandra 322 135 6275</p>
+                
                     <form id="rsvp-form">
     <input type="text" id="nombre-invitado" name="nombre" placeholder="Escribe tu nombre completo" required>
     
@@ -242,6 +325,17 @@
 
     <button type="submit">Enviar Confirmación</button>
 </form>
+<div class="info-reservaciones">
+    <p class="texto-reservaciones">
+        Para tu comodidad, te ofrecemos opciones de hospedaje.<br>
+        Contacta a nuestra agente de viajes especializada.
+    </p>
+    <img src="vts-logo.png" alt="Logo de VTS Concierge Travel" class="logo-agencia">
+    <a href="https://wa.me/523221356275" target="_blank" class="boton-whatsapp">
+        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+    </a>
+</div>
+
 <p id="mensaje-gracias" style="display:none; margin-top: 15px;">¡Gracias por tu confirmación! Tu respuesta es muy importante para nosotros y nos ayuda a preparar cada detalle para que podamos celebrar juntos este día tan especial.</p>
                 </div>
             </div>
